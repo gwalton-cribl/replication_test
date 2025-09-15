@@ -18,22 +18,23 @@
           },
           "replaceExpr": {
             "type": "string",
-            "title": "Mitigation Expression",
-            "description": "A JavaScript expression or literal to replace the matching content. Capturing groups can be referenced as g1, g2, and so on, and event fields as event.<fieldName>.",
+            "title": "Mitigation details",
+            "description": "A JavaScript expression or literal to replace the matching content",
             "jsExpression": true,
-            "default": "'REDACTED'"
+            "default": "C.Mask.REDACTED"
           },
           "disabled": {
             "type": "boolean",
-            "default": false
+            "default": false,
+            "description": "Enable evaluation of individual rulesets"
           }
         }
       }
     },
     "fields": {
       "type": "array",
-      "title": "Apply to fields",
-      "description": "Rulesets act on the events contained in these fields. Mitigation expressions apply to the scan results. Supports wildcards (*).",
+      "title": "Fields to evaluate",
+      "description": "Fields on which to apply the masking rules. Supports * wildcards, except when used on internal fields",
       "items": {
         "type": "string",
         "pattern": "^(?!__.*\\*).*$",
@@ -45,21 +46,21 @@
     },
     "excludeFields": {
       "type": "array",
-      "title": "Fields to ignore",
-      "description": "Fields that the mitigation expression will not be applied to. Supports wildcards (*).",
+      "title": "Fields to exclude",
+      "description": "Fields to exclude from masking rules. Supports * wildcards, except when used on internal fields",
       "placeholder": "Start typing to add exclusion fields",
       "items": {
         "type": "string",
         "pattern": "^(?!__.*\\*).*$",
         "errorMessage": {
-           "pattern": "Internal fields cannot be used with wildcards"
+           "pattern": "Internal fields cannot be used with wildcards."
         }
       },
       "default": []
     },
     "flags": {
       "title": "Add fields",
-      "description": "Fields to add when mitigation is applied to an event",
+      "description": "Fields to evaluate if one or more masking rules are matched",
       "type": "array",
       "items": {
         "type": "object",
@@ -72,16 +73,16 @@
           "value": {
             "type": "string",
             "title": "Value",
+            "description": "JavaScript expression to compute the value (can be constant)",
             "jsExpression": true
           }
         }
-      },
-      "default": [{ "name": "_sensitive", "value": "true" }]
+      }
     },
     "includeDetectedRules": { 
       "type": "boolean",
       "title": "Include detected rules",
-      "description": "If enabled, Add matching ruleset IDs to a field called \"__detected\"",
+      "description": "Include the rules that were detected in the event",
       "default": true
     }
   }

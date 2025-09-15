@@ -32,19 +32,6 @@
     }
   },
   "discovery" : {
-    "enableStrictDiscoverParsing": {},
-    "discoverResponseFormat": {
-      "ui:widget": "SelectWidget",
-      "ui:options": {
-        "editable": false,
-        "uiEnumOptions": [
-          { "value": "json", "label": "JSON" },
-          { "value": "xml", "label": "XML" },
-          { "value": "ndjson", "label": "NDJSON" },
-          { "value": "text", "label": "Plain text" }
-        ]
-      }
-    },
     "discoverType": {
       "ui:widget": "RadioTile",
       "ui:options": {
@@ -272,9 +259,7 @@
           "discoverDataField",
           "itemList",
           "enableDiscoverCode",
-          "formatResultCode",
-          "enableStrictDiscoverParsing",
-          "discoverResponseFormat"
+          "formatResultCode"
         ]
       },
       "collect": {
