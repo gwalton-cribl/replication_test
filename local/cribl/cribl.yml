@@ -4,7 +4,7 @@ auth:
 git:
   authType: ssh
   gitOps: none
-  remote: ssh://git@github.com:gwalton-cribl/replication_test.git
+  remote: git@github.com:gwalton-cribl/replication_test.git
   autoAction: none
   strictHostKeyChecking: true
   timeout: 300000
