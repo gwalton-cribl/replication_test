@@ -1,0 +1,6 @@
+redactFields:
+redactLabel:
+channels:
+  DEFAULT: info
+  output:DistWorker: debug
+maxSizeBytes: 5242880
