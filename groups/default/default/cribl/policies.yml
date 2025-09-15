@@ -309,18 +309,17 @@ SearchRuntimeRestrictionsMaintainer:
   args:
     - groupName
   template:
+    - 'GET /m/${groupName}/search/srr/sendOutsideCluster'
     - 'GET /m/${groupName}/search/srr/exportToLake'
-    - 'GET /m/${groupName}/search/srr/sendToCustomWorkerGroup'
   description: Can perform advanced search operator tasks
   title: Search Runtime Maintainer
 SearchRuntimeRestrictionsAdmin:
   args:
     - groupName
   template:
-    - 'GET /m/${groupName}/search/srr/cancelAllJobs'
-    - 'GET /m/${groupName}/search/srr/sendToUrl'
-    - 'GET /m/${groupName}/search/srr/setGlobalOptions'
     - 'GET /m/${groupName}/search/srr/showAllJobs'
+    - 'GET /m/${groupName}/search/srr/cancelAllJobs'
+    - 'GET /m/${groupName}/search/srr/setGlobalOptions'
   description: Can execute operators and commands for all resources
   title: Search Runtime Admin
 SearchBase:
@@ -341,8 +340,6 @@ SearchBase:
     - '* /m/${groupName}/lib/parsers/*'
     - '* /m/${groupName}/lib/breakers/*'
     - '* /m/${groupName}/lib/breakers'
-    - '* /m/${groupName}/search/datatypes/*'
-    - '* /m/${groupName}/search/datatypes'
     - '* /m/${groupName}/lib/grok'
     - '* /m/${groupName}/lib/grok/*'
     - '* /m/${groupName}/lib/regex'
@@ -394,7 +391,6 @@ SearchBase:
     # Packs require Groups
     - GET /master/groups
     - GET /master/groups/${groupName}
-    - POST|GET /m/${groupName}/search/notebooks
   description: Building block for Search Policies
 SearchUsageGroupsMaintainer:
   args:
@@ -449,28 +445,6 @@ DashboardRead:
     - GET /m/${groupName}/search/dashboards/${dashboardId}/*
   description: Can view and use the dashboard
   title: Read Only
-NotebookMaintain:
-  args:
-    - groupName
-    - notebookId
-  template:
-    - '* /m/${groupName}/search/notebooks/${notebookId}'
-    - '* /m/${groupName}/search/notebooks/${notebookId}/*'
-    - DatasetRead * $vt_notebook_activity
-    - MaintainBase search
-  description: Can own, edit, and delete the notebook
-  title: Maintainer
-NotebookBase:
-  args:
-    - groupName
-    - notebookId
-  template:
-    - GET /m/${groupName}/search/notebooks/${notebookId}
-    - GET /m/${groupName}/search/notebooks/${notebookId}/*
-    - DatasetRead * $vt_notebook_activity
-    - POST /m/${groupName}/search/notebooks/${notebookId}/activity
-  description: Can view and use the notebook
-  title: Read Only
 MacroMaintain:
   args:
     - groupName
@@ -522,8 +496,6 @@ LakeRead:
     - GET /products/lake/lakes/${lakeId}/direct-access
     - GET /products/lake/lakes/${lakeId}/sources
     - GET /products/lake/lakes/${lakeId}/sources/*
-    - GET /products/lake/lakes/${lakeId}/storage-locations
-    - GET /products/lake/lakes/${lakeId}/storage-locations/*
   description: Can view and use a Lake Dataset
   title: Read Only
 LakeEdit:
@@ -535,7 +507,6 @@ LakeEdit:
     - LakeRead * * *
     - PATCH /ui/*
     - POST /products/lake/lakes/${lakeId}/datasets
-    - PATCH /products/lake/lakes/${lakeId}/datasets
     - PATCH /products/lake/lakes/${lakeId}/datasets/${datasetId}
     - POST /products/lake/lakes/${lakeId}/buckets
     - PATCH /products/lake/lakes/${lakeId}/buckets/*
@@ -543,8 +514,6 @@ LakeEdit:
     - PATCH /products/lake/lakes/${lakeId}/direct-access
     - POST /products/lake/lakes/${lakeId}/sources
     - PATCH /products/lake/lakes/${lakeId}/sources/*
-    - POST /products/lake/lakes/${lakeId}/storage-locations
-    - PATCH /products/lake/lakes/${lakeId}/storage-locations/*
     - PATCH /products/lake/lakes/${lakeId}/lakehouses/${cacheId}/datasets/${datasetId}/connections
   description: Can create and edit datasets
   title: Editor
@@ -561,6 +530,5 @@ LakeFull:
     - DELETE /products/lake/lakes/${lakeId}/buckets/*
     - DELETE /products/lake/lakes/${lakeId}/direct-access
     - DELETE /products/lake/lakes/${lakeId}/sources/*
-    - DELETE /products/lake/lakes/${lakeId}/storage-locations/*
   description: Can fully manage datasets
   title: Admin

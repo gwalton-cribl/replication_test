@@ -29,10 +29,6 @@ enableWorkerPersistence: false
 kvStoreEnableWAL: false
 kvStoreWALMaxBytes: 5242880
 bundleDownloadTimeoutSeconds: 0
-minReconnectInterval: '2s'
-maxReconnectInterval: '1m'
-randomReconnectInterval: '0s'
 enableProcessInfoUsingWindowsTools: false
 lookupMaxSize: 500MB
 lookupMaxTotalSize: 2GB
-largeEventsThreshold: 1MB

@@ -11,5 +11,5 @@ test_group:
   isFleet: false
   isSearch: false
   description: test group for ssh
-  configVersion: 4b50d83
+  configVersion: ee5778c
   lookupDeployments: []

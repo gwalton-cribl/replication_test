@@ -124,13 +124,6 @@
       "default": false,
       "defaultNew": true
     },
-    "handleEscapedChars": {
-      "type": "boolean",
-      "title": "Preserve escaped characters",
-      "description": "Escape characters (\\\") in search queries will be passed directly to Splunk",
-      "default": false,
-      "defaultNew": true
-    },
     "retryRules": {
       "type": "object",
       "required": [

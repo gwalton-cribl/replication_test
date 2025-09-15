@@ -85,11 +85,10 @@
       "rows": 1
     }
   },
-  "timeout": {"ui:options": {"inline": false, "width": "15%"}},
+  "timeout": {"ui:options": {"inline": true}},
   "useRoundRobinDns": {"ui:options": {"inline": true}},
   "disableTimeFilter": {"ui:options": {"inline": true}},
   "rejectUnauthorized": {"ui:options": {"inline": true}},
-  "handleEscapedChars": {"ui:options": {"inline": true}},
   "retryRules": {
     "ui:forceRender": true,
     "codes": {

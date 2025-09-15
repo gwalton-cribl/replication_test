@@ -285,13 +285,6 @@
                   "title": "Discover data field",
                   "description": "Path to field in the response object that contains discovery results (ex: level1.name). Leave blank if the result is an array."
                 },
-                "enableStrictDiscoverParsing": {
-                  "type": "boolean",
-                  "title": "Strict discover response parsing",
-                  "description": "Explicitly set the discover response format. When disabled, best effort parsing is used.",
-                  "default": false
-                },
-                "discoverResponseFormat": {},
                 "enableDiscoverCode": {
                   "type": "boolean",
                   "title": "Format discover result with custom code",
@@ -299,26 +292,6 @@
                 }
               },
               "dependencies" : {
-                "enableStrictDiscoverParsing": {
-                  "oneOf" : [
-                    {
-                      "properties": {
-                        "enableStrictDiscoverParsing": { "enum": [ false ] }
-                      }
-                    },
-                    {
-                      "required": [ "discoverResponseFormat" ],
-                      "properties": {
-                        "enableStrictDiscoverParsing": { "enum": [ true ] },
-                        "discoverResponseFormat": {
-                          "type": "string",
-                          "title": "Discover response format",
-                          "description": "If 'Strict discover response parsing' parsing is enabled, provide the response format"
-                        }
-                      }
-                    }
-                  ]
-                },
                 "enableDiscoverCode" : {
                   "oneOf" : [
                     {
