@@ -5,3 +5,9 @@ default_fleet:
   description: Default Fleet
   tags: default
   isFleet: true
+test_group:
+  workerRemoteAccess: true
+  streamtags: []
+  isFleet: false
+  isSearch: false
+  description: test group for ssh
