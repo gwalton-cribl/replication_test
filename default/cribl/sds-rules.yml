@@ -1,0 +1,3361 @@
+aba_routing_number:
+  id: ABA Routing Number
+  lib: cribl
+  regex: /\b\d{9}\b|\b\d{2}-\d{4}\/\d{4}\b/gm
+  rulesets:
+    - Financial_UnitedStates
+    - Default
+  examples:
+    - "129131673"
+    - 11-3167/1210
+    - "111000025"
+  contextKeywords:
+    - keyword: routing number
+    - keyword: aba routing
+    - keyword: aba
+us_social_security_number:
+  id: US Social Security Number
+  lib: cribl
+  regex: /\b\d{3}[-.\s]?\d{2}[-.\s]?\d{4}\b/gm
+  rulesets:
+    - PII_UnitedStates
+    - Default
+  examples:
+    - 123-45-6789
+    - 123.45.6789
+    - 123 45 6789
+    - "123456789"
+  contextKeywords:
+    - keyword: ssn
+    - keyword: social
+    - keyword: socialsecurity
+    - keyword: socialsecuritynumber
+us_passport:
+  id: US Passport
+  lib: cribl
+  regex: /\b([A-Z]\d{8}|\d{9})\b/gm
+  rulesets:
+    - PII_UnitedStates
+    - Default
+  examples:
+    - "123456789"
+    - E00005678
+    - A12345678
+  contextKeywords:
+    - keyword: us
+    - keyword: passport
+ipv4_address:
+  id: IPv4 Address
+  lib: cribl
+  regex: /\b(?:(?:25[0-5]|2[0-4]\d|1?\d{1,2})\.){3}(?:25[0-5]|2[0-4]\d|1?\d{1,2})\b/gm
+  rulesets:
+    - Network_Global
+  examples:
+    - 10.0.0.0
+    - 172.16.0.0
+    - 192.168.255.255
+  contextKeywords:
+    - keyword: ip
+    - keyword: address
+ipv6_address:
+  id: IPv6 Address
+  lib: cribl
+  regex: /\b[0-9a-fA-F]{4}:[0-9a-fA-F]{4}:[0-9a-fA-F]{4}:[0-9a-fA-F]{4}:[0-9a-fA-F]{4}:[0-9a-fA-F]{4}:[0-9a-fA-F]{4}:[0-9a-fA-F]{4}\b|\b[0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}::[0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}\b/gm
+  rulesets:
+    - Network_Global
+  examples:
+    - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+    - 2001:db8:85a3::8a2e:370
+  contextKeywords:
+    - keyword: ip
+    - keyword: address
+american_express_card_(1x15_digits):
+  id: American Express Card (1x15 digits)
+  lib: cribl
+  regex: /\b3[47][0-9]{13}\b/gm
+  rulesets:
+    - Financial_UnitedStates
+    - Financial_Global
+  examples:
+    - "341234567890123"
+    - "371234567890123"
+  contextKeywords:
+    - keyword: amex
+    - keyword: american express
+    - keyword: cc
+    - keyword: ccn
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+american_express_card_(4+4+4+3_digits):
+  id: American Express Card (4+4+4+3 digits)
+  lib: cribl
+  regex: /\b3[47][0-9]{2}[- .][0-9]{4}[- .][0-9]{4}[- .][0-9]{3}\b/gm
+  rulesets:
+    - Financial_UnitedStates
+    - Financial_Global
+  examples:
+    - 3412-3456-7890-123
+    - 3712-3456-7890-124
+    - 3412 3456 7890 123
+    - 3712 3456 7890 124
+    - 3412.3456.7890.123
+    - 3712.3456.7890.124
+  contextKeywords:
+    - keyword: amex
+    - keyword: american express
+    - keyword: cc
+    - keyword: ccn
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+american_express_card_(4+6+5_digits):
+  id: American Express Card (4+6+5 digits)
+  lib: cribl
+  regex: /\b3[47]\d{2}[- .]\d{6}[- .]\d{5}\b/gm
+  rulesets:
+    - Financial_UnitedStates
+    - Financial_Global
+  examples:
+    - 3412-345678-90123
+    - 3712-345678-90124
+    - 3412 345678 90123
+    - 3712 345678 90124
+    - 3412.345678.90123
+    - 3712.345678.90125
+  contextKeywords:
+    - keyword: amex
+    - keyword: american express
+    - keyword: cc
+    - keyword: ccn
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+american_express_card_(8+7_digits):
+  id: American Express Card (8+7 digits)
+  lib: cribl
+  regex: /\b3[47][0-9]{6}[- .][0-9]{7}\b/gm
+  rulesets:
+    - Financial_UnitedStates
+    - Financial_Global
+  examples:
+    - 34123456-7890123
+    - 37123456-7890124
+    - 34123456 7890123
+    - 37123456 7890124
+    - "34123456.7890123"
+    - "37123456.7890126"
+  contextKeywords:
+    - keyword: amex
+    - keyword: american express
+    - keyword: cc
+    - keyword: ccn
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+discover_card_(1x16_digits):
+  id: Discover Card (1x16 digits)
+  lib: cribl
+  regex: /\b(6011\d{12}|64[4-9]\d{13}|65\d{14})\b/gm
+  rulesets:
+    - Financial_UnitedStates
+    - Financial_Global
+  examples:
+    - "6011123456789012"
+    - "6441234567890123"
+    - "6451234567890123"
+    - "6461234567890123"
+    - "6471234567890123"
+    - "6481234567890123"
+    - "6491234567890123"
+    - "6512345678901234"
+  contextKeywords:
+    - keyword: discover
+    - keyword: ccn
+    - keyword: cc
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+discover_card_(2x8_digits):
+  id: Discover Card (2x8 digits)
+  lib: cribl
+  regex: /\b(6011\d{4}-\d{8}|64[4-9]\d{5}[-. ]\d{8}|65\d{5}[-. ]\d{8})\b/gm
+  rulesets:
+    - Financial_UnitedStates
+    - Financial_Global
+  examples:
+    - 60111234-56789012
+    - 64412345-67890123
+    - 64512345 67890123
+    - 64612345 67890123
+    - "64712345.67890123"
+    - "64812345.67890123"
+  contextKeywords:
+    - keyword: discover
+    - keyword: ccn
+    - keyword: cc
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+discover_card_(4x4_digits):
+  id: Discover Card (4x4 digits)
+  lib: cribl
+  regex: /\b(6011|64[4-9]\d|65\d{2})[-. ]?\d{4}[-. ]?\d{4}[-. ]?\d{4}\b/gm
+  rulesets:
+    - Financial_UnitedStates
+    - Financial_Global
+  examples:
+    - 6011-1234-5678-9012
+    - 6441-2345-6789-0123
+    - 6451.2345.6789.0123
+    - 6461.2345.6789.0123
+    - 6471 2345 6789 0123
+    - 6481 2345 6789 0123
+  contextKeywords:
+    - keyword: discover
+    - keyword: ccn
+    - keyword: cc
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+mastercard_(1x16_digits):
+  id: MasterCard (1x16 digits)
+  lib: cribl
+  regex: /\b(5[1-5][0-9]{14}|2(2[2-9][1-9]|2[3-9][0-9]|[3-6][0-9]{2}|7[01][0-9]|720)[0-9]{12})\b/gm
+  rulesets:
+    - Financial_UnitedStates
+    - Financial_Global
+  examples:
+    - "2221123456789012"
+    - "2321234567890123"
+    - "2454234567890123"
+    - "2516234567890123"
+    - "2651234567890123"
+    - "2720234567890123"
+    - "5121123456789012"
+    - "5521234567890123"
+  contextKeywords:
+    - keyword: mastercard
+    - keyword: master card
+    - keyword: cc
+    - keyword: ccn
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+mastercard_(2x8_digits):
+  id: MasterCard (2x8 digits)
+  lib: cribl
+  regex: /\b(222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720|5[1-5])[0-9]{4}[-. ]?[0-9]{8}\b/gm
+  rulesets:
+    - Financial_UnitedStates
+    - Financial_Global
+  examples:
+    - 22211234-56789012
+    - 23212345-67890123
+    - "24542345.67890123"
+    - "25162345.67890123"
+    - 26512345 67890123
+    - 27202345 67890123
+  contextKeywords:
+    - keyword: mastercard
+    - keyword: master card
+    - keyword: cc
+    - keyword: ccn
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+mastercard_(4x4_digits):
+  id: MasterCard (4x4 digits)
+  lib: cribl
+  regex: /\b((222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720|5[1-5][0-9]{2})[-. ]\d{4}[-. ]\d{4}[-. ]\d{4})\b/gm
+  rulesets:
+    - Financial_UnitedStates
+    - Financial_Global
+  examples:
+    - 2221-1234-5678-9012
+    - 2321-2345-6789-0123
+    - 2454.2345.6789.0123
+    - 2516.2345.6789.0123
+    - 2651 2345 6789 0123
+    - 2720 2345 6789 0123
+  contextKeywords:
+    - keyword: mastercard
+    - keyword: master card
+    - keyword: cc
+    - keyword: ccn
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+visa_card_(1x16_&_1x19_digits):
+  id: Visa Card (1x16 & 1x19 digits)
+  lib: cribl
+  regex: /\b4\d{15}\b|\b4\d{18}\b/gm
+  rulesets:
+    - Financial_UnitedStates
+    - Financial_Global
+  examples:
+    - "4011123456789012"
+    - "4441234567890123"
+    - "4451234567890123"
+    - "4461234567890123"
+    - "4471234567890123"
+    - "4481234567890123"
+    - "4491234567890123"
+    - "4512345678901234"
+    - "4491234567890123456"
+    - "4512345678901234567"
+  contextKeywords:
+    - keyword: visa
+    - keyword: cc
+    - keyword: ccn
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+visa_card_(2x8_digits):
+  id: Visa Card (2x8 digits)
+  lib: cribl
+  regex: /4\d{7}[-. ]\d{8}/gm
+  rulesets:
+    - Financial_UnitedStates
+    - Financial_Global
+  examples:
+    - 40111234-56789012
+    - 44412345-67890123
+    - "44512345.67890123"
+    - "44612345.67890123"
+    - 44712345 67890123
+    - 44812345 67890123
+  contextKeywords:
+    - keyword: visa
+    - keyword: cc
+    - keyword: ccn
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+visa_card_(4x4_digits):
+  id: Visa Card (4x4 digits)
+  lib: cribl
+  regex: /4\d{3}([-\. ]\d{4}){3}/gm
+  rulesets:
+    - Financial_UnitedStates
+    - Financial_Global
+  examples:
+    - 4011-1234-5678-9012
+    - 4441-2345-6789-0123
+    - 4451.2345.6789.0123
+    - 4461.2345.6789.0123
+    - 4471 2345 6789 0123
+    - 4481 2345 6789 0123
+  contextKeywords:
+    - keyword: visa
+    - keyword: cc
+    - keyword: ccn
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+us_bank_account:
+  id: US Bank Account
+  lib: cribl
+  regex: /\b\d{8,17}\b|\b\d{4}-\d{4}\b/gm
+  rulesets:
+    - Financial_UnitedStates
+    - Default
+  examples:
+    - "12345678"
+    - 1234-5678
+    - "123456789"
+    - "1234567890"
+    - "123456789012"
+    - "12345678901234567"
+  contextKeywords:
+    - keyword: bank
+    - keyword: account
+    - keyword: us
+    - keyword: acct
+us_vehicle_identification_number:
+  id: US Vehicle Identification Number
+  lib: cribl
+  regex: /\b[A-HJ-NPR-Z0-9]{9}-?[A-HJ-NPR-Z0-9]{8}\b/gm
+  rulesets:
+    - PII_UnitedStates
+  examples:
+    - WDDDJ72X97A116339
+    - JH4DC2380RS000036
+    - 3VWSB81H8WM210368
+    - WDDDJ72X9-7A116339
+    - JH4DC2380-RS000036
+    - 3VWSB81H8-WM210368
+  contextKeywords:
+    - keyword: vin
+    - keyword: vehicle identification number
+us_individual_tax_identification_number:
+  id: US Individual Tax Identification Number
+  lib: cribl
+  regex: /9\d{2}[- ]?(5[0-9]|6[0-5]|7[0-9]|8[0-8]|9[0-2]|9[4-9])[- ]?\d{3,4}/gm
+  rulesets:
+    - PII_UnitedStates
+    - Default
+  examples:
+    - 900-70-0000
+    - 912 91 3457
+    - 987-55-765
+    - "934963457"
+  contextKeywords:
+    - keyword: itin
+    - keyword: tax identification number
+ai71_api_key:
+  id: AI71 API Key
+  lib: cribl
+  regex: /\bai71-api-[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}\b/gm
+  rulesets:
+    - Credentials_AI
+  examples:
+    - ai71-api-2f336f7f-318c-4093-eea3-e5432740679a
+    - ai71-api-2f336f7f-318e-8765-bbc4-e5432740679b
+  contextKeywords:
+    - keyword: ai71
+    - keyword: api_key
+anthropic_admin_key:
+  id: Anthropic Admin Key
+  lib: cribl
+  regex: /sk-ant-admin01-[a-z0-9]{3}_[A-Za-z0-9_-]{64,}/gm
+  rulesets:
+    - Credentials_AI
+  examples:
+    - sk-ant-admin01-t3w_RRTw81KTCoNHYh93hRm5FCly5zgfu2A8q0qNwAC0lhEpEJPYr4TgS00fDH32Wm4R_IbyaARrDSUC4PgPaQ-CcPVGAAA
+    - sk-ant-admin01-u4x_SSUx92LUDpOIYi04iSn6GDmz6ahgv3B1r1OxBD1miFqFQKZs5UhT11gEI43Xn5S_JczbBSsEVTD5QhQbQ-DdQWGBBB
+    - sk-ant-admin01-w6z_UUWz14NWFrQKak26kUp8IFob8cji5D3t3QzDF3okHsHSMUBu7WjV33iGK65Zp7U_LeadDUuGXVF7SjScS-FfSYIDDD
+  contextKeywords:
+    - keyword: anthropic
+    - keyword: sk
+    - keyword: ant
+    - keyword: admin
+australian_business_number:
+  id: Australian Business Number
+  lib: cribl
+  regex: /\b\d{2}\s?\d{3}\s?\d{3}\s?\d{3}\b/gm
+  rulesets:
+    - PII_AsiaPacific
+  examples:
+    - 51 824 753 556
+    - "12124678961"
+    - 66 232 568 946
+  contextKeywords:
+    - keyword: abn
+    - keyword: au_abn
+    - keyword: australiabusinessnumber
+australian_company_number:
+  id: Australian Company Number
+  lib: cribl
+  regex: /\b\d{3} \d{3} \d{3}\b/gm
+  rulesets:
+    - PII_AsiaPacific
+  examples:
+    - 010 523 056
+    - 004 224 346
+    - 001 051 921
+  contextKeywords:
+    - keyword: acn
+    - keyword: au_acn
+    - keyword: australiacompanynumber
+australian_medicare_number:
+  id: Australian Medicare Number
+  lib: cribl
+  regex: /\b\d{4}\s\d{5}\s\d{1}\b/gm
+  rulesets:
+    - PII_AsiaPacific
+  examples:
+    - 1234 56789 2
+    - 2345 67890 8
+    - 3456 78901 2
+  contextKeywords:
+    - keyword: medicare
+    - keyword: au_medicare
+australian_tax_file_number:
+  id: Australian Tax File Number
+  lib: cribl
+  regex: /\b\d{3}\s?\d{3}\s?\d{3}\b/gm
+  rulesets:
+    - PII_AsiaPacific
+  examples:
+    - 113 456 789
+    - 823 456 789
+    - "787654328"
+  contextKeywords:
+    - keyword: tfn
+    - keyword: au_tfn
+    - keyword: taxfilenumber
+aws_access_key_id_v1:
+  id: AWS Access Key ID v1
+  lib: cribl
+  regex: /AKIA-?[0-9A-Z]{16}/gm
+  rulesets:
+    - Credentials_Amazon
+  examples:
+    - AKIAIOSFODNN7EXAMPLE
+    - AKIA-1OS4O7NN7E3AM5LE
+    - AKIAIOSF34987EXAM239
+  contextKeywords:
+    - keyword: aws_access_key_id
+    - keyword: access key
+    - keyword: aws access
+    - keyword: x-amz-credential
+aws_secret_key_v1:
+  id: AWS Secret Key v1
+  lib: cribl
+  regex: /([A-Za-z0-9\/+=]{40})/gm
+  rulesets:
+    - Credentials_Amazon
+  examples:
+    - hjshnn5ef2a30565c4654HMSAoaz443d42swljak
+    - wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+    - S0ugN5wv2mBHr+e7DN7dTqg4Aa6b4l5I0gDRfq9S
+  contextKeywords:
+    - keyword: aws_secret_access_key
+    - keyword: credentials
+    - keyword: secret access key
+    - keyword: secret key
+    - keyword: set-awscredential
+azure_devops_personal_access_token:
+  id: Azure DevOps Personal Access Token
+  lib: cribl
+  regex: /[A-Za-z0-9]{52,}/gm
+  rulesets:
+    - Credentials_Azure
+  examples:
+    - sbwamnzekhbkhrthrkceu57534sargb7t24w5b6h55b3r3asnbbd
+    - AYxcVX6IGTtu16vzSkSagvwfyBOyH9q2Od1ztEzH772dbeJ2xC5sJQQJ99BDACAAAAAxREYTAAASAZODv3qo
+    - 3ihGL4uHYzXLxg47czeGv98KKY7dVCnEcB6oUDh3WqfLHj1H8DFTJQQJ99BBACAAAAAcEVCYAAASAZDO6I2U
+  contextKeywords:
+    - keyword: azure
+    - keyword: azure_token
+azure_event_grid_access_key:
+  id: Azure Event Grid Access Key
+  lib: cribl
+  regex: /[A-Za-z0-9\+\/]{40,}={0,2}/gm
+  rulesets:
+    - Credentials_Azure
+  examples:
+    - h+hDRjRV5ix+o9FOsJccB8zQQ2cEGwHUM+BBS6TMTTbCYCDRHeXdzQ/lg0FpG1NajC8NPGDVrjzqAqD5eM93
+    - XXXXXXXXXXXXXXXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
+    - +IDq6YLhwstys9FkYzeaDnLK7FME0DuKQxnBxL9Qg+E=
+  contextKeywords:
+    - keyword: eventgrid_topickey
+    - keyword: aeg-sas-key
+    - keyword: topickey
+azure_openai_api_key:
+  id: Azure OpenAI API Key
+  lib: cribl
+  regex: /\b[a-f0-9]{32}\b/gm
+  rulesets:
+    - Credentials_AI
+    - Credentials_Azure
+  examples:
+    - dc79f95b01254ecbab4f721ff655ae2f
+    - a6e48f0a94d949309e66faa91827fd86
+    - b19b2357dcde45af8ddb27a196867812
+  contextKeywords:
+    - keyword: azure
+    - keyword: aoai
+    - keyword: azure_openai_api_key
+box_links:
+  id: Box Links
+  lib: cribl
+  regex: /https:\/\/[\w.-]+\.box\.com\/(?:s|shared\/static|v)\/[\w-.\/]+/gm
+  rulesets:
+    - Credentials_SaaS
+  examples:
+    - https://www.box.com/shared/static/rh935iit6ewrmw0unyul.jpeg
+    - https://www.box.com/s/vspke7y05sb214wjokpk
+    - https://acme.app.box.com/v/my_url/
+  contextKeywords:
+    - keyword: box
+    - keyword: box.com
+    - keyword: url
+    - keyword: link
+checkout.com_api_secret_key:
+  id: Checkout.com API Secret Key
+  lib: cribl
+  regex: /\bsk_(?:sbox_)?[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}\b/gm
+  rulesets:
+    - Credentials_SaaS
+  examples:
+    - sk_0b9b5db6-fabc-49d0-b68f-13343bb4f708
+    - sk_be458ac1-fabc-4194-bf58-123b5fae88c7
+    - sk_sbox_be458ac1-fabc-4194-bf58-523e1ffd98e1
+    - sk_sbox_0b9b5db6-fabc-49d0-b68f-92645dc4f508
+  contextKeywords:
+    - keyword: checkout
+    - keyword: cko
+bitcoin_crypto_wallet:
+  id: Bitcoin Crypto Wallet
+  lib: cribl
+  regex: /(?<![a-zA-Z0-9])[a-zA-Z0-9]{22,64}(?![a-zA-Z0-9])/gm
+  rulesets:
+    - Credentials_Financial
+  examples:
+    - E9873D79C6D87DC0FB6A5778633389F4453213303DA61F20BD67FC233AA33262
+    - 5Kb8kLf9zgWQnogidDA76MzPL6TsZZY36hWXMssSzNydYXYB9KF
+    - SzavMBLoXU6kDrqtUVmffv
+  contextKeywords:
+    - keyword: bitcoin
+    - keyword: crypto
+    - keyword: wallet
+clarifai_api_key:
+  id: Clarifai API Key
+  lib: cribl
+  regex: /[a-z][0-9a-z]{31}/gm
+  rulesets:
+    - Credentials_AI
+  examples:
+    - a4560aa667e4456743dc95c7bea10b17
+    - b5671bb778f5567854ed06d8cfb21c28
+    - d7893dd990h7789076gf28f0ehd43e40
+  contextKeywords:
+    - keyword: clarifai
+    - keyword: clarifai_api_key
+claude_api_key:
+  id: Claude API Key
+  lib: cribl
+  regex: /sk-ant-api\d{2}-[a-zA-Z0-9_\-]+/gm
+  rulesets:
+    - Credentials_AI
+  examples:
+    - sk-ant-api03-z0zjHHXo5uibD2havvfqiZYJe9ENlwI1trcQC4pyRC2N2w6nbpUitUU_iR4kkSszVyUpINaxvCtun3_Mub0O3w-48GXRgAA
+    - sk-ant-api03-lwfESWqh_7RvqZ2cCANYw9scfj8Z8tegAppkRnWnclSFEuEPcjuYUITSiziCs2_JRgru7AET1AxD4Fpdic3T-Q-apLfhQAA
+    - sk-ant-api04-pRLEoxKCq2cuUW5bhgMTVPcAuDd6aoydZQYcEXVp_Fu46ri_GkPW5INiuAEYTqOx4w27CnqVik4Ak_wNjjzKAA-Q5uYbwAA
+  contextKeywords:
+    - keyword: anthropic
+    - keyword: claude
+    - keyword: claude_api_key
+    - keyword: anthropic_api_key
+cohere_api_key:
+  id: Cohere API Key
+  lib: cribl
+  regex: /[a-z0-9]{32}[a-z0-9]{8}/gm
+  rulesets:
+    - Credentials_AI
+  examples:
+    - 902c619882c71706ad991f5b8f469ab3ht5637h9
+    - a13d720993d82817be0a2g6c9g570bc4iu674i0a
+    - c35f9421b5f0a439dg2c4i8e1i792de6kw896k2c
+  contextKeywords:
+    - keyword: cohere
+    - keyword: co
+    - keyword: client
+coze_api_personal_access_token:
+  id: Coze API Personal Access Token
+  lib: cribl
+  regex: /pat_[A-Za-z0-9]{62,64}/gm
+  rulesets:
+    - Credentials_AI
+  examples:
+    - pat_Xz8CyurBS1GtjiYwzhE8DWbvTpQXzFSQXdCLABeCDE8fwEE9c0RhDadUaCFFDB02
+    - pat_Zb0EawtDU3IvlkAybjG0FYdxVrSZbHUZSfENDCgEFG0hGG1eTjFcfWcEGHFD24
+    - pat_Ac1FbxuEV4JwmlBzckH1GZeyWsTAcIVATgFOEDhFGH1iHH2fUkGdgXdFGHGE35
+  contextKeywords:
+    - keyword: coze
+    - keyword: pat
+databricks_personal_access_token:
+  id: Databricks Personal Access Token
+  lib: cribl
+  regex: /dapi[a-zA-Z0-9]{32}/gm
+  rulesets:
+    - Credentials_SaaS
+  examples:
+    - dapi72766020efab76b5ad71bd6107344301
+    - dapi82351a65625ee2c246d841e682355380
+    - dapi65432d98765bb2c890g567d345678901
+  contextKeywords:
+    - keyword: databricks
+    - keyword: token
+    - keyword: dapi
+diners_card_(1x14_digits):
+  id: Diners Card (1x14 digits)
+  lib: cribl
+  regex: /3(0[0-5]|6|8)[0-9]{12}|300[0-9]{11}/gm
+  rulesets:
+    - Financial_Global
+  examples:
+    - "30023456789012"
+    - "36123456789012"
+    - "38123456289012"
+  contextKeywords:
+    - keyword: diners
+    - keyword: cc
+    - keyword: ccn
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+diners_card_(4+4+4+2_digits):
+  id: Diners Card (4+4+4+2 digits)
+  lib: cribl
+  regex: /(?<![0-9])(3(?:0[0-5]|6|8)[0-9]{2}[-. ]?[0-9]{6}[-. ]?[0-9]{4}|300[0-9][-. ]?[0-9]{6}[-. ]?[0-9]{4})(?![0-9])/gm
+  rulesets:
+    - Financial_Global
+  examples:
+    - 3002-345678-9012
+    - 3612.345678.9012
+    - 3812 345628 9013
+  contextKeywords:
+    - keyword: diners
+    - keyword: cc
+    - keyword: ccn
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+diners_card_(4+6+4_digits):
+  id: Diners Card (4+6+4 digits)
+  lib: cribl
+  regex: /3(?:0[0-5]|6|8)[0-9]{2}[-\.\s][0-9]{4}[-\.\s][0-9]{4}[-\.\s][0-9]{2}|300[0-9][-\.\s][0-9]{4}[-\.\s][0-9]{4}[-\.\s][0-9]{2}/gm
+  rulesets:
+    - Financial_Global
+  examples:
+    - 3002-3456-7890-12
+    - 3612.3456.7890.12
+    - 3812 3456 2890 14
+  contextKeywords:
+    - keyword: diners
+    - keyword: cc
+    - keyword: ccn
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+diners_card_(8+6_digits):
+  id: Diners Card (8+6 digits)
+  lib: cribl
+  regex: /3(?:0[0-5]|6|8)[0-9]{6}[-\.\s]?[0-9]{6}|300[0-9]{5}[-\.\s]?[0-9]{6}/gm
+  rulesets:
+    - Financial_Global
+  examples:
+    - 30023456-789012
+    - "36123456.789012"
+    - 38123456 289012
+  contextKeywords:
+    - keyword: diners
+    - keyword: cc
+    - keyword: ccn
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+docker_swarm_join_token:
+  id: Docker Swarm Join Token
+  lib: cribl
+  regex: /\bSWMTKN-(?:1|2)(?:-1)?-[a-z0-9]{25,50}-[a-z0-9]{25,50}\b/gm
+  rulesets:
+    - Credentials_SaaS
+  examples:
+    - SWMTKN-1-568ya21bqrpkwl5di47zcs2v5039p7rie6cbs586ni3i12t3r3-4xr7lve30qn7krdtpmusgddkq
+    - SWMTKN-2-1-568ya21bqrpkwl5di47zcs2v5039p7rie6cbs586ni3i12t3r3-4xr7lve30qn7krdtpmusgddkq
+    - SWMTKN-1-568ya21bqrpkwl5di47zcs2v5039p7rie6cbs586ni3i12t3r3-aia4nyrqci6wliru6um99kgb2
+  contextKeywords:
+    - keyword: swarm
+    - keyword: token
+    - keyword: swmtkn
+    - keyword: join_token
+    - keyword: join-token
+    - keyword: join
+docker_swarm_unlock_key:
+  id: Docker Swarm Unlock Key
+  lib: cribl
+  regex: /SWMKEY-1-[A-Za-z0-9+/=]{22,}/gm
+  rulesets:
+    - Credentials_SaaS
+  examples:
+    - SWMKEY-1-UOhYoCrqWN9VYhF6FpdGXCavM0LaAmtZpm+60BoTz/A
+    - SWMKEY-1-fySn8TY4w5lKcWcJPIpKufejh9hxx5KYwx6XZigx3Q4
+    - SWMKEY-1-7c37Cc8654o6p38HnroywCi19pllOnGtbdZEgtKxZu8
+  contextKeywords:
+    - keyword: swarm
+    - keyword: token
+    - keyword: swmkey
+    - keyword: unlock_key
+    - keyword: unlock-key
+    - keyword: unlock
+dropbox_links:
+  id: Dropbox Links
+  lib: cribl
+  regex: /https:\/\/www\.dropbox\.com\/(s|sh)\/[a-zA-Z0-9]+\/[a-zA-Z0-9._-]+\?dl=\d/gm
+  rulesets:
+    - Credentials_SaaS
+  examples:
+    - https://www.dropbox.com/s/a1b2c3d4ef5gh6/example.docx?dl=0
+    - https://www.dropbox.com/s/n0jo32rbghvdpll/bed_cat.jpg?dl=1
+    - https://www.dropbox.com/sh/ohne9yvmzrfkmso/AADYv8Gh2P9oJSKln-RW2ZVca?dl=0
+  contextKeywords:
+    - keyword: dropbox
+    - keyword: dropbox.com
+    - keyword: link
+    - keyword: url
+dsa_private_key:
+  id: DSA Private Key
+  lib: cribl
+  regex: /-----BEGIN DSA PRIVATE KEY-----[A-Za-z0-9+\/=\r\n\s]+-----END DSA PRIVATE KEY-----/gm
+  rulesets:
+    - Credentials_CryptographicKeys
+  examples:
+    - |-
+      -----BEGIN DSA PRIVATE KEY-----
+          WTIFvDJBDDOBgQBdqbawD3ZvUrbaIeg4AWFSpMRaTatCSEXgcRKMGgdExvfsDI/x
+          VAqbfddAl/TEupANhhUFkC+bpJ/diZixQgPvLKoFFVtBKyHHHSpuZTnnppUYZZ/x
+          -----END DSA PRIVATE KEY-----
+    - |-
+      -----BEGIN DSA PRIVATE KEY-----
+          MIIBvAIBAAKBgQDaqdgwD3YvYwgbWzs8RQQOm8RmPztSYMUrcM7KQtdJ111sTZ/x
+          VAq84frCt/TEupAN5hUFkC+bpJ/diZixQgPvLKo6FVtBKy97HSpuZT8n2pUYZ9/4
+          sBTR5YQtP9qExXUYO/yR+fZ+RE9w0TbSAtHW2YZHKnoowJAHdoEGMbaChQIVAK/q
+          iXNHCha4xHnIdD2jT0OUs03fAoGBAMnCeTgO09r2GquRAQmGFAT/6IGMhux7KOC8
+          QrW2cEaqAHLiuA45E3Iae342RF2rb0VeewxfbFHbqNcsCeSMj3CAmrImJ1W8gCZZ
+          dRojGz0DYZHJbcspoGtZF1IF6Z3BoaggRcLX6/KYLbnzFZnBXV/+//gRTbm/V2ie
+          BzCWE/qEAoGBANbrGxzVTTdTD8MaVtlOpjU3RqoGFHmFCd4lv0PIt2mjFsXO3Dt/
+          6BMtJVREtb74WF0SUGmnpy6FTYoDb05j2LhH1IvCSkFT5hUK0WtAJ3NidJ6ARxxD
+          z2QITWI1FTr1K9NbZdR6DoTxeKfV6wWbuLywlwoWYmLe6oAmq21Oft4XAhRcKcLk
+          r2R/Rn1uchUL8ru0B2OVkg==
+          -----END DSA PRIVATE KEY-----
+  contextKeywords:
+    - keyword: dsa
+    - keyword: key
+    - keyword: dsa_key
+dynatrace_token:
+  id: Dynatrace Token
+  lib: cribl
+  regex: /[a-zA-Z0-9-]{20,24}/gm
+  rulesets:
+    - Credentials_SaaS
+  examples:
+    - x8QhzChmbzDehNH01BMp2
+    - luMEDTz7Ib-QR2gJASeND
+    - bq43DGxttIxUukgJ-N6eP
+  contextKeywords:
+    - keyword: dynatrace
+    - keyword: token
+    - keyword: dynatrace_api_token
+    - keyword: api-token
+ec_private_key:
+  id: EC Private Key
+  lib: cribl
+  regex: /-----BEGIN EC PRIVATE KEY-----[A-Za-z0-9+/=\r\n\s]{150,1200}-----END EC PRIVATE KEY-----/gm
+  rulesets:
+    - Credentials_CryptographicKeys
+  examples:
+    - |-
+      -----BEGIN EC PRIVATE KEY-----
+      WukpA3LSI6sWjJqCOTnalyS9DkgwKYcUqlYvYpVsPRNxIKoeQG6oTEuhwMbrrzv6
+      TFGo7YJA5JG+0rS9G7phSOyTdBDukSnA6f8ooZfCvXJRsB3fd+AGZx8lAnwtlynE
+      jcFOAkTkz4NKiNgydiCzCMQx8vdl5PVIQBYiegCGT0o=
+      -----END EC PRIVATE KEY-----
+  contextKeywords:
+    - keyword: ec
+    - keyword: key
+    - keyword: ec_key
+email:
+  id: Email
+  lib: cribl
+  regex: /\b[a-zA-Z0-9._+-]{1,30}@[a-zA-Z0-9.-]{1,30}\.[a-zA-Z]{2,6}\b/gm
+  rulesets:
+    - PII_Global
+    - Default
+  examples:
+    - example@hotmail.com
+    - firstlast@nd.edu
+    - firstlast@cribl.io
+    - s@abc.net
+    - first.last@cribl.io
+    - first.last+test@cribl.io
+    - first_last@cribl.com.ca
+    - first_last+1111@cribl-staging.com.ca
+  contextKeywords:
+    - keyword: email
+    - keyword: em
+    - keyword: mail
+    - keyword: mailto
+encrypted_private_key:
+  id: Encrypted Private Key
+  lib: cribl
+  regex: /-----BEGIN ENCRYPTED PRIVATE KEY-----[A-Za-z0-9+/=\r\n\s]{150,1500}-----END ENCRYPTED PRIVATE KEY-----/gm
+  rulesets:
+    - Credentials_CryptographicKeys
+  examples:
+    - |-
+      -----BEGIN ENCRYPTED PRIVATE KEY-----
+          MIIBrTBXBgkqhkiG9w0BBQ0wSjApBgkqhkiG9w0BBQwwHAQIVdHyvepVyXMCAggA
+          MAwGCCqGSIb3DQIJBQAwHQYJYIZIAWUDBAEqBBAAKxt+HUbLXHuSH7tYxtgHBIIB
+          UD4ncOFKjrboKx+897QTEwH7U5QXAceMQSA6OSpP4RMqWzd+DSuQ2AhW9ny+JuhZ
+          cuayQvXkIOyk/LUCy1ilm3fhbN2+gKiH8ghJsZzeANnWBuX8d6e6aEMLPnv101Dm
+          MzSz/KIV+Sw7ltUDNGo6Admwoo4FFfS8EtTsHe2NkqgliEJigWuOOfZvle45BR6W
+          LWASXptVC3+dI+csKPlDQi5xgjv65MpEzjc9mmkcVxRxq5lDnZaz1o3q+MJjYlFU
+          ONzqGQC37TJ0+gjFK2ETBoV/G6c2iUXeNZB8DabT9PBKX6TbtaoYfCnJ/wkK9NOT
+          1nkJsK6CxBBUhZCH2O4OtcmMsUoRCYfIBl+NbdBR6k0gK6F0GwbpA6Vpfgub5hy2
+          kPp+kkrC+h8EctAlp++vIoJ/F6TAnn0G65c3AVYEk84RUTDgjDoci6u74KbpQ/md
+          vQ==
+          -----END ENCRYPTED PRIVATE KEY-----
+  contextKeywords:
+    - keyword: key
+    - keyword: private_key
+facebook_access_token:
+  id: Facebook Access Token
+  lib: cribl
+  regex: /EAA[a-zA-Z0-9][a-zA-Z0-9]{30,}/gm
+  rulesets:
+    - Credentials_Social
+  examples:
+    - EAACEdEose0cBASyyirEPfkeUXkBxou8CE90rCVc2TmtIUaXbsGzmB1kWSiFBYjFXXxah4EDiDfoiwMfFMFDda20ezXElf7QB9McpKyYK8CTXQz8OYpXcjzswhSpfWiMXv9eIdebQqxr9RmqQpRtCCtfpGBnsWnO0M4A5NCbdwHCZD
+    - EAAbEdEose0cBASyyirEPfkeUXkBxou8CE90rCVc2TmtIUaXbsGzmB1kWSiFBYjFXXxah4EDiDfoiwMfFMFDda20ezXElf7QB9McpKyYK8CTXQz8OYpXcjzswhSpfWiMXv9eIdebQqxr9RmqQpRtCCtfpGBnsWnO0M4A5NCbdwHCZD
+  contextKeywords:
+    - keyword: facebook
+    - keyword: access
+    - keyword: token
+facebook_secret:
+  id: Facebook Secret
+  lib: cribl
+  regex: /[a-f0-9]{32}/gm
+  rulesets:
+    - Credentials_Social
+  examples:
+    - ce3f9f0362bbe5ab01dfc8ee565e4372
+    - ce3f9f0362bbe5ab01dfc7ff565e4372
+    - ba3f9f0362bbe5ab45dfc8ee565e4371
+  contextKeywords:
+    - keyword: facebook
+    - keyword: secret
+    - keyword: token
+finnish_personal_identity_code:
+  id: Finnish Personal Identity Code
+  lib: cribl
+  regex: /\b\d{6}[-YA\+]\d{3,4}[A-Z0-9]\b/gm
+  rulesets:
+    - PII_EuropeanUnion
+  examples:
+    - 131052-308T
+    - 241201A001E
+    - 071295Y214L
+    - 010197+1178
+  contextKeywords:
+    - keyword: hetu
+    - keyword: henkilötunnus
+    - keyword: personbeteckningen
+    - keyword: personal identity code
+fireworks_ai_api_key:
+  id: Fireworks AI API Key
+  lib: cribl
+  regex: /fw_[a-zA-Z0-9]{24}/gm
+  rulesets:
+    - Credentials_AI
+  examples:
+    - fw_3ZkWSyAu3Z73YatLrHK0rDdr
+    - fw_4AlXTzBv4A84ZbuMsIS1sEes
+    - fw_5BmYUaCw5B95AcvNtJT2tFft
+  contextKeywords:
+    - keyword: fw
+    - keyword: key
+    - keyword: fw_key
+france_social_security_number_(insee/nir):
+  id: France Social Security Number (INSEE/NIR)
+  lib: cribl
+  regex: /\b[12] \d{2} \d{2} \d{2} \d{3} \d{3} \d{2}\b/gm
+  rulesets:
+    - PII_EuropeanUnion
+  examples:
+    - 2 94 03 75 120 005 22
+    - 1 94 03 75 120 005 22
+    - 2 87 03 75 120 005 11
+  contextKeywords:
+    - keyword: securite sociale
+    - keyword: insee
+    - keyword: nir
+    - keyword: code secu
+    - keyword: national identity code
+general_private_key:
+  id: General Private Key
+  lib: cribl
+  regex: /-----BEGIN PRIVATE KEY-----[A-Za-z0-9+/=\r\n\s]{150,1500}-----END PRIVATE KEY-----/gm
+  rulesets:
+    - Credentials_CryptographicKeys
+  examples:
+    - |-
+      -----BEGIN PRIVATE KEY-----
+          KJICdQIBADALBgkqhkiG9w0BAQEEggJhMIICXQIBAAKBgQC7JHoJfg6yNzLMOWet
+          8Z49a4KD0dCspMAYvo2YAMB7/wdEycocujbhJ2n/seONi+5XqTqqFkM5VBl8rmkk
+          FPZk/7x0xmdsTPECSWnHK+HhoaNDFPR3j8jQhVo1laxiqcEhAHegi5cwtFosuJAv
+          SKAFKEvyD43si00DQnXWrYHAEQIDAQABAoGAAPy5SiYHiVErU3KR4Bg+pl4x75wM
+          FiRC0Cgz+frQPFQEBsAV9RuasyQxqzxrR0Ow0qncBeGBWbYE6WZhqtcLAI895b+i
+          +F4lbB4iD7T9QeIDMV/aIMXA81UO4cns1z4qDAHKeyLLrPQrJ/B4X7XC+egUWm5+
+          hr1qmyAMusyXIBECQQDJWZ8piluf4yrYfsJAn6hF5T4RjTztbqvO0GVG2McHY7Uj
+          NPSffhzHx/ll0fQEQji+OgydCCX8o3HZrgw5YfSJAkEA7e+rqdU5nO5ZG//PSEQb
+          tjLnRiTzBH/elQhtdZ5nF7pcpNTi4k13zutmKcWW4GK75azcRGJUhu1kDM7QYAOd
+          SQJAVNkYcifkvna7GmooL5VYEsQsqLbM4v0NF2TIGNfG3z1MGp75KrC5LhL97MNR
+          we2p/bd2k0HYyCKUGnf2nMPDiQJBAI75pwittSoE240EobUGIDTSz8CJsXIxuDmL
+          z+HOpdsPRT9TEmbEBAspjsFpCamMauEDgkohZbO8eJc1vScC5OkCQZCL9w5tcL8p
+          Xxg/SNpjEIv+qAyUD96XVlOJlOIeLHQ8kYE0C6ZA+MsqYIzgAreJk88Yn0lU/X0/
+          mu/UpE/BRTfs
+          -----END PRIVATE KEY-----
+  contextKeywords:
+    - keyword: key
+    - keyword: private_key
+github_enterprise_token:
+  id: Github Enterprise Token
+  lib: cribl
+  regex: /\b[a-f0-9]{40}\b/gm
+  rulesets:
+    - Credentials_SaaS
+  examples:
+    - 28e204929a1e8ebaeb946a76348336fc7fffddbe
+    - 7b476decd32f22e2d9c00e5836b56a25d7d6e562
+    - 367d3c02f1dc622d340efc5493cea73f3cb924e4
+  contextKeywords:
+    - keyword: github
+    - keyword: access
+    - keyword: token
+    - keyword: githubaccesstoken
+    - keyword: githubtoken
+gitlab_enterprise_token:
+  id: GitLab Enterprise Token
+  lib: cribl
+  regex: /C4FSHpor42bkSu[a-zA-Z0-9_-]{5,}/gm
+  rulesets:
+    - Credentials_SaaS
+  examples:
+    - C4FSHpor42bkSumYEZuD
+    - C4FSHpor42bkSu_YEZu-
+  contextKeywords:
+    - keyword: gitlab
+    - keyword: developer
+    - keyword: pat
+google_api_key:
+  id: Google API Key
+  lib: cribl
+  regex: /[A-Za-z0-9]{39}/gm
+  rulesets:
+    - Credentials_Google
+  examples:
+    - AIzaSy0c3965368a6b10f7640dbda46abfdca98
+    - BImaKj0c3965312a6b10f7640dbda46abfdca98
+  contextKeywords:
+    - keyword: key
+    - keyword: gcp_key
+    - keyword: gcp_api_key
+    - keyword: googlemapskey
+    - keyword: googlekey
+    - keyword: x-goog-api-key
+google_cloud_api_key:
+  id: Google Cloud API Key
+  lib: cribl
+  regex: /-----BEGIN PRIVATE KEY-----[A-Za-z0-9+/=\r\n\s]{150,1500}-----END PRIVATE KEY-----/gm
+  rulesets:
+    - Credentials_Google
+  examples:
+    - |-
+      -----BEGIN PRIVATE KEY-----
+      MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC7VJTUt9Us8cKB
+      UxPiHuckqjH7nUltdlKUsAVyqpZHGgxaLtaEAAiMLtPXZIkZacFVmuKODqEMBgdl
+      kQoOYlffmVSawSv+SSBiZb0tMRfhGFmMQRuHenNzwpzaGI6S95TBzC45ew0W9B8H
+      eGedGFQY05HuHXBeGZsEoME2RDjoTq6CwqHuciYlNhzpEgJI2KMZzPtRr2hqM62R
+      DtUBInws0FiHxkn8eoWUcXBPxJMb3dLPVdvtfLs/I6l2dqIsa6SCuNWiP/Cc6Vs
+      Nsw0W2YBqjnrpjx2+7Ba5CCyqADuCkudnz5SfIYMUXOoKWEXdFEfxLYLnzQSFveW
+      lxTBCmPjZAgMBAAECggEBALdwLeDhxbKjyHTuIHMaVs6VcSjhFTBaW4DDd0TNtBrt
+      lUEFHzSKHvnWHq4PqKMmVnECkJeAKmqaVwqmfwIhAO2k3Jg77vSg8qYdGTlh7oec
+      RkbQ/2s5hrYy1VfqmVTQhFAoOInuRh3jh9tHmhxob8qRw4KOy2u+ztqUMrqHtqhJ
+      -----END PRIVATE KEY-----
+
+  contextKeywords:
+    - keyword: key
+    - keyword: gcp_key
+    - keyword: google_cloud_key
+    - keyword: google-api-key
+    - keyword: google-cloud-apikeys
+    - keyword: googlekey
+    - keyword: x-goog-api-key
+google_gemini_api_key:
+  id: Google Gemini API Key
+  lib: cribl
+  regex: /(?<![A-Za-z0-9_-])[A-Za-z0-9_-]{70}\.(?![A-Za-z0-9_-])/gm
+  rulesets:
+    - Credentials_AI
+    - Credentials_Google
+  examples:
+    - Wwgq7RoGrFoqJJs5jJ6SPxykY4BkusO4Oggyfcejnao4ov_IZ3PvE79BHNMcgs-RJOkRTw.
+    - YgibgNtefjuLXcbnx9WLGzFp1AiSdHmDvFA0elFUPBsQ3lZLR-SBuiERL1zupq5Nz3detw.
+    - YwgwRaZwHkQlJbXr2vQ8XfqOjsrUVuBVLaUztdnoGWKCj2_zFNzdzUwriQKUb_NUAVM-aw.
+  contextKeywords:
+    - keyword: gemini
+    - keyword: gemini_api_key
+    - keyword: secure-1psid
+google_oauth2_key:
+  id: Google OAuth2 Key
+  lib: cribl
+  regex: /GOCSPX-[A-Za-z0-9_-]{24,32}/gm
+  rulesets:
+    - Credentials_Google
+  examples:
+    - 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
+  contextKeywords:
+    - keyword: google
+    - keyword: oauth
+    - keyword: access
+    - keyword: token
+    - keyword: authorization
+    - keyword: authentication
+groq_api_key:
+  id: Groq API Key
+  lib: cribl
+  regex: /gsk_[A-Za-z0-9]{52}/gm
+  rulesets:
+    - Credentials_AI
+  examples:
+    - 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
+    - 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
+  contextKeywords:
+    - keyword: groq
+    - keyword: groq_api_key
+heroku_key:
+  id: Heroku Key
+  lib: cribl
+  regex: /[a-f0-9]{7,8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}/gm
+  rulesets:
+    - Credentials_SaaS
+  examples:
+    - 75c7509-1a26-4283-ba45-3e59df710b8f
+    - 8ca41b0d-ae34-4d10-a0c0-0d619b37d60b
+    - d75c7509-1a26-4283-ba45-3e59df710b8f
+  contextKeywords:
+    - keyword: heroku
+    - keyword: key
+    - keyword: heroku_api_key
+hipaa_phi_national_drug_code:
+  id: HIPAA PHI National Drug Code
+  lib: cribl
+  regex: /\b\d{4,5}-\d{3,4}-\d{1,2}\b/gm
+  rulesets:
+    - Health_UnitedStates
+  examples:
+    - 0002-7597-01
+    - 00002-7597-01
+    - 50242-040-62
+    - 50242-0040-62
+    - 60575-4112-1
+    - 60575-4112-01
+  contextKeywords:
+    - keyword: ndc
+    - keyword: drug_code
+    - keyword: drug
+http_basic_authentication_header:
+  id: HTTP Basic Authentication Header
+  lib: cribl
+  regex: /https?:\/\/[a-zA-Z0-9]+:[a-zA-Z0-9]+@[\w\.-]+(:\d+)?\/[\w\d]*/gm
+  rulesets:
+    - Credentials_Web
+    - Default
+  examples:
+    - http://43f6017361224d098402974103bfc53d:a6a0538fc2934ba2bed32e08741b2cd3@my.host.live.something.com/1
+    - http://43f6017361224d098402974103bfc53d:a6a0538fc2934ba2bed32e08741b2cd3@my.host.live.something.com:9000/1
+  contextKeywords:
+    - keyword: user
+    - keyword: username
+    - keyword: password
+    - keyword: pwd
+    - keyword: pass
+    - keyword: passwd
+    - keyword: authorization
+    - keyword: basic
+http_cookie:
+  id: HTTP Cookie
+  lib: cribl
+  regex: /\b[a-zA-Z0-9_]{1,50}=[a-zA-Z0-9]{1,200}\b/gm
+  rulesets:
+    - Credentials_Web
+  examples:
+    - PHPSESSID=298zf09hf012fh2
+    - csrftoken=u32t4o3tb3gg43
+    - _gat=1
+  contextKeywords:
+    - keyword: cookie
+hugging_face_user_access_token:
+  id: Hugging Face User Access Token
+  lib: cribl
+  regex: /hf_[A-Za-z0-9]{33,34}/gm
+  rulesets:
+    - Credentials_AI
+  examples:
+    - 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
+    - hf_TOAKkKMbdnqIliYhnlbIzgsmOCGNZFfUL
+    - hf_UPBLlLNceorJmjZioomcAhtnPDHOAGgVM
+  contextKeywords:
+    - keyword: hugging face
+    - keyword: hf
+    - keyword: token
+iban:
+  id: IBAN
+  lib: cribl
+  regex: /\b[A-Z]{2}[0-9]{2}(?:[ ]?[A-Z0-9]{1,4}){4,8}\b/gm
+  rulesets:
+    - Financial_Global
+    - Default
+  examples:
+    - ES91 2100 0418 4502 0005 1332
+    - AE07 0331 2345 6789 0123 456
+    - BR97 0036 0305 0000 1000 9795 493P 1
+    - PS92 PALS 0000 0000 0400 1234 5670 2
+    - CH93 0076 2011 6238 5295 7
+  contextKeywords:
+    - keyword: iban
+    - keyword: bank
+    - keyword: account
+indian_individual_identity_number:
+  id: Indian Individual Identity Number
+  lib: cribl
+  regex: /\b\d{4}[ -]?\d{4}[ -]?\d{4}\b/gm
+  rulesets:
+    - PII_AsiaPacific
+  examples:
+    - 3977 8800 0234
+    - 2161 6729 3627
+    - 8580-3038-2541
+  contextKeywords:
+    - keyword: aadhaar
+    - keyword: uidai
+indian_passport:
+  id: Indian Passport
+  lib: cribl
+  regex: /[A-Z][1-9][0-9]\s?[0-9]{4}[1-9]/gm
+  rulesets:
+    - PII_AsiaPacific
+  examples:
+    - A1234567
+    - P1034561
+    - B9198767
+  contextKeywords:
+    - keyword: passport
+    - keyword: indian passport
+    - keyword: passport number
+indian_permanent_account_number:
+  id: Indian Permanent Account Number
+  lib: cribl
+  regex: /[A-Z]{5}[ ]?[0-9]{4}[ ]?[A-Z]/gm
+  rulesets:
+    - PII_AsiaPacific
+  examples:
+    - BLGPS 1234 D
+    - ABCLG 8563 C
+    - RMHTM5698E
+  contextKeywords:
+    - keyword: pan
+    - keyword: permanent account number
+indian_vehicle_registration:
+  id: Indian Vehicle Registration
+  lib: cribl
+  regex: /\b([A-Z]{2}|\d{3}) ?\d{2} ?[A-Z]{1,2} ?\d{1,4}\b|\b\d{3} ?[A-Z]{1,2} ?\d{2}\b/gm
+  rulesets:
+    - PII_AsiaPacific
+  examples:
+    - AN 01 Z 0123
+    - 199 CD 99
+    - AN01Z0123
+    - 199CD99
+  contextKeywords:
+    - keyword: rto
+    - keyword: vehicle
+    - keyword: plate
+    - keyword: registration
+indian_voter_id:
+  id: Indian Voter ID
+  lib: cribl
+  regex: /\b([A-Z]{3}[ -]?[0-9]{7})\b/gm
+  rulesets:
+    - PII_AsiaPacific
+  examples:
+    - ABC 1234567
+    - DEF9876543
+    - POL-9865432
+  contextKeywords:
+    - keyword: voter
+    - keyword: votercard
+    - keyword: voteridcard
+    - keyword: epic
+italian_drivers_license:
+  id: Italian Drivers License
+  lib: cribl
+  regex: /\b([A-Z]{2}[-\s]?\d{7}[-\s]?[A-Z])\b/gm
+  rulesets:
+    - PII_EuropeanUnion
+  examples:
+    - MA9876543P
+    - LG-1234567-S
+    - CH 0987123 Z
+  contextKeywords:
+    - keyword: driver
+    - keyword: drivers
+    - keyword: license
+    - keyword: driverlicense
+    - keyword: driverslicense
+    - keyword: dl
+italian_identity_card:
+  id: Italian Identity Card
+  lib: cribl
+  regex: /\b[A-Z]{2}\s?\d{7,8}\b|\b[A-Z]{2}\d{7,8}\b|\b[A-Z]{2}\s?\d{4}\s?[A-Z]{2}\b|\b[A-Z]{2}\d{4}[A-Z]{2}\b|\b[A-Z]{2}\b/gm
+  rulesets:
+    - PII_EuropeanUnion
+  examples:
+    - AA 1234567
+    - AA7654321
+    - CA0000AA
+    - CA 0000 AA
+    - AA
+  contextKeywords:
+    - keyword: id
+    - keyword: idcard
+    - keyword: carta
+    - keyword: cie
+    - keyword: documento
+italian_passport:
+  id: Italian Passport
+  lib: cribl
+  regex: /(?<![A-Za-z0-9])([A-Za-z0-9]{2}[ ]?\d{7})(?![A-Za-z0-9])/gm
+  rulesets:
+    - PII_EuropeanUnion
+  examples:
+    - AA1234567
+    - "111234567"
+    - BB 9876543
+    - "991238764"
+  contextKeywords:
+    - keyword: passport
+    - keyword: passaporto
+    - keyword: passaporto italiana
+    - keyword: numero di passaporto
+italian_personal_identification_code:
+  id: Italian Personal Identification Code
+  lib: cribl
+  regex: /[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]/gm
+  rulesets:
+    - PII_EuropeanUnion
+  examples:
+    - MRTMTT91D08F205J
+    - MLLSNT82P65Z404U
+  contextKeywords:
+    - keyword: codice
+    - keyword: fiscale
+    - keyword: tax
+    - keyword: id
+    - keyword: personal
+    - keyword: code
+    - keyword: tin
+italian_vat_code:
+  id: Italian VAT Code
+  lib: cribl
+  regex: /\b[Ii][Tt][ \.,-]?[0-9]{11}\b/gm
+  rulesets:
+    - PII_EuropeanUnion
+  examples:
+    - IT 09876543210
+    - it.12345678901
+    - It-10293847561
+    - iT,67584930210
+  contextKeywords:
+    - keyword: iva
+    - keyword: vat
+    - keyword: vat number
+jcb_card_(1x16_digits):
+  id: JCB Card (1x16 digits)
+  lib: cribl
+  regex: /\b35(2[8-9]|[3-8][0-9])\d{12}\b/gm
+  rulesets:
+    - Financial_Global
+  examples:
+    - "3528123456789012"
+    - "3537123456789012"
+    - "3548123456789012"
+    - "3561234567890123"
+    - "3573234567890123"
+    - "3589234567890123"
+  contextKeywords:
+    - keyword: jcb
+    - keyword: cc
+    - keyword: ccn
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+jcb_card_(4x4_digits):
+  id: JCB Card (4x4 digits)
+  lib: cribl
+  regex: /35[2-9][0-9]{5}[-. ]?[0-9]{8}/gm
+  rulesets:
+    - Financial_Global
+  examples:
+    - 35281234-56789012
+    - 35371234-56789012
+    - "35481234.56789012"
+    - "35612345.67890123"
+    - 35732345 67890123
+    - 35892345 67890124
+  contextKeywords:
+    - keyword: jcb
+    - keyword: cc
+    - keyword: ccn
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+jcb_card_(2x8_digits):
+  id: JCB Card (2x8 digits)
+  lib: cribl
+  regex: /\b35(2[8-9]|3[0-9]|4[0-9]|5[0-9]|6[0-9]|7[0-9]|8[0-9]|9[0-9])[\s.-]?\d{4}[\s.-]?\d{4}[\s.-]?\d{4}\b/gm
+  rulesets:
+    - Financial_Global
+  examples:
+    - 3528-1234-5678-9012
+    - 3537-1234-5678-9012
+    - 3548.1234.5678.9012
+    - 3561.2345.6789.0123
+    - 3573 2345 6789 0123
+    - 3589 2345 6789 0125
+  contextKeywords:
+    - keyword: jcb
+    - keyword: cc
+    - keyword: ccn
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+jira_api_token:
+  id: JIRA API Token
+  lib: cribl
+  regex: /(?<![A-Za-z0-9_=-])[A-Za-z0-9_=-]{20,}(?![A-Za-z0-9_=-])/gm
+  rulesets:
+    - Credentials_SaaS
+  examples:
+    - VDOheDe1sSCeGkuTARhkFDE2
+    - khEPIVYz26ZfGL9bYTEl4398
+    - ATATT3xFfGF01k_7IfVNdJJYIJdVWSrBCa5zr4lOXmV01BouL2J2N59kpmhaX0Si3jUfpLg3q88BcmdXgXmCLagah-R4-xjDVVFBRJ3iMzdU2ixY2W5DGMwIu-_8_bsxW9Iap_gnhXt9UVtCTcZCFFRfgA8lAWENVnXwY1mSWZauN-9aknFJQZE=357C17F1
+  contextKeywords:
+    - keyword: token
+    - keyword: jira_password
+    - keyword: jira.myaccesstoken
+    - keyword: jira
+json_web_token:
+  id: JSON Web Token
+  lib: cribl
+  regex: /\b[A-Za-z0-9_]{20}[A-Za-z0-9_-]{0,180}\.[A-Za-z0-9_]{20}[A-Za-z0-9_-]{0,180}\.[A-Za-z0-9_]{20}[A-Za-z0-9_-]{0,180}\b/gm
+  rulesets:
+    - Credentials_Web
+    - Default
+  examples:
+    - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiZXhwIjoxNjc0MDA1NDIyLCJwYXNzd29yZCI6IklqNzg2I2I0bGwxIn0.o99hhHHQt2ztFyNjaQbkuakAz9bT1Kc-GsvphHn_gQs
+    - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiYmFtZSI6IkpvaW5hIiwiYXpwIjoiY2xpZW50MSJ9.4pcPyMD09o1PSyXnrXCjTwXyr4BsezdI1AVTmud2fU4
+  contextKeywords:
+    - keyword: jwt
+    - keyword: token
+    - keyword: decoded_token
+    - keyword: password
+    - keyword: secret
+langchain_api_key:
+  id: Langchain API Key
+  lib: cribl
+  regex: /ls(?:v2_sk_[a-f0-9]+_[a-f0-9]+|__[a-f0-9]+)/gm
+  rulesets:
+    - Credentials_AI
+  examples:
+    - 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
+    - ls__7eb350bde9534566bcbcac1b9ed5848b
+  contextKeywords:
+    - keyword: langchain
+    - keyword: lc
+    - keyword: langchain_api_key
+lightweight_directory_access_protocol:
+  id: Lightweight Directory Access Protocol
+  lib: cribl
+  regex: /(?:ldap_pwd|ldap_pass|pwd)\s*=\s*"([^"]+)"/gm
+  rulesets:
+    - Credentials_Web
+  examples:
+    - pwd = "k%udk423u4%P8=H_"
+    - pwd = "k%udk423u4%P8=H_"
+    - ldap_pass = "k%udk423u4%P8=H_"
+    - ldap_pwd = "k%udk423u4%P8=H_"
+    - ldap_pwd = "k%udk423u4%P8=H_"
+  contextKeywords:
+    - keyword: ldap_pass
+    - keyword: ldap_pwd
+    - keyword: pwd
+    - keyword: pass
+    - keyword: cred
+llama_cloud_api_key:
+  id: Llama Cloud API Key
+  lib: cribl
+  regex: /\b(?:llx-[A-Za-z0-9]{48}|[A-Za-z0-9]{48})\b/gm
+  rulesets:
+    - Credentials_AI
+  examples:
+    - llx-a2C7FgYfP1hzX3pXuvtdaNjdkOqsrYoZRO3O3JqaZddtQ3BD
+    - b3D8GhZgQ2iaY4qYvwuebOkelPrtsZpASP4P4KrbAeeuR4CE
+  contextKeywords:
+    - keyword: llama
+    - keyword: cloud
+    - keyword: api
+    - keyword: key
+    - keyword: llama_cloud_api_key
+maestro_card_(1x16_digits):
+  id: Maestro Card (1x16 digits)
+  lib: cribl
+  regex: /\b(5018|5020|5038|5893|6304|6759|6761|6762|6763)(?:\d{12}|\d{16})\b/gm
+  rulesets:
+    - Financial_Global
+  examples:
+    - "5018127569458623"
+    - "50382568856923145698"
+    - "5893365295687459"
+    - "6304741285239632"
+    - "67592569854132156523"
+    - "67613215523685412478"
+  contextKeywords:
+    - keyword: maestro
+    - keyword: cc
+    - keyword: ccn
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+maestro_card_(2x8_digits):
+  id: Maestro Card (2x8 digits)
+  lib: cribl
+  regex: /\b(5018|5020|5038|5893|6304|6759|6761|6762|6763)[0-9]{4}([-\. ]?)[0-9]{8}\b/gm
+  rulesets:
+    - Financial_Global
+  examples:
+    - 50181275-69458623
+    - 50382568-85692314
+    - "58933652.95687459"
+    - "63047412.85239632"
+    - 67592569 85413215
+    - 67613215 52368541
+  contextKeywords:
+    - keyword: maestro
+    - keyword: cc
+    - keyword: ccn
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+maestro_card_(4x4_digits):
+  id: Maestro Card (4x4 digits)
+  lib: cribl
+  regex: /\b(5018|5020|5038|5893|6304|6759|6761|6762|6763)[-\.\s]?\d{4}[-\.\s]?\d{4}[-\.\s]?\d{4}\b/gm
+  rulesets:
+    - Financial_Global
+  examples:
+    - 5018-1275-6945-8623
+    - 5038-2568-8569-2314
+    - 5893.3652.9568.7459
+    - 6304.7412.8523.9632
+    - 6759 2569 8541 3215
+    - 6761 3215 5236 8542
+  contextKeywords:
+    - keyword: maestro
+    - keyword: cc
+    - keyword: ccn
+    - keyword: credit card
+    - keyword: card
+    - keyword: cardnumber
+mailchimp_api_key:
+  id: MailChimp API Key
+  lib: cribl
+  regex: /\b[a-z0-9]{32}-us\d{1,2}\b/gm
+  rulesets:
+    - Credentials_Communication
+  examples:
+    - ae54fcc23ade65fa404a65e78c56f898-us1
+    - ae85fcc23ade65fa404a64t78c56f759-us1
+  contextKeywords:
+    - keyword: mailchimp
+    - keyword: api key
+    - keyword: bearer
+mailgun_api_key:
+  id: MailGun API Key
+  lib: cribl
+  regex: /key-[a-zA-Z0-9]{32}/gm
+  rulesets:
+    - Credentials_Communication
+  examples:
+    - key-ae54fcc23ade65fa404a65e78c56f898
+    - key-ae85fcc23ade65fa404a64t78c56f759
+  contextKeywords:
+    - keyword: mailgun
+    - keyword: api key
+    - keyword: bearer
+medicare_beneficiary_identifier:
+  id: Medicare Beneficiary Identifier
+  lib: cribl
+  regex: /\b[1-9][A-HJ-NP-RT-Y][0-9A-HJ-NP-RT-Y][0-9]-?[A-HJ-NP-RT-Y][0-9A-HJ-NP-RT-Y][0-9]-?[A-HJ-NP-RT-Y]{2}[0-9]{2}\b/gmi
+  rulesets:
+    - Health_UnitedStates
+  examples:
+    - 1A23-C45-DE67
+    - 1A23C45DE67
+    - 1AB3-CD5-DE67
+    - 1AB3CD5DE67
+    - 1AB3-C45-DE67
+    - 1A23CD5DE67
+  contextKeywords:
+    - keyword: medicare
+    - keyword: mbi
+    - keyword: id
+    - keyword: beneficiary
+microsoft_office_365_oauth_context:
+  id: Microsoft Office 365 OAuth Context
+  lib: cribl
+  regex: /https:\/\/login\.microsoftonline\.com\/([a-fA-F0-9-]{36})\/oauth2\/v2\.0\/token/gm
+  rulesets:
+    - Credentials_Azure
+  examples:
+    - https://login.microsoftonline.com/12345678-abcd-1234-5678-123456789abc/oauth2/v2.0/token
+    - https://login.microsoftonline.com/9a8b7c6d-5e4f-3210-9876-fedcba098765/oauth2/v2.0/token
+    - https://login.microsoftonline.com/f1e2d3c4-b5a6-9879-8765-4321098765fe/oauth2/v2.0/token
+  contextKeywords:
+    - keyword: microsoft
+    - keyword: login
+    - keyword: oauth
+    - keyword: client_id
+    - keyword: client_secret
+mistral_api_key:
+  id: Mistral API Key
+  lib: cribl
+  regex: /[a-zA-Z0-9]{32}/gm
+  rulesets:
+    - Credentials_AI
+  examples:
+    - c2pXa02aafTrY6nZfjmOdzHjj4wKdfTG
+    - d9pXa02aafTrY6nZfjmOdzHjj4wKdfTG
+    - T0pXa02aafTrY6nZfjmOdzHjj4wKdfTG
+  contextKeywords:
+    - keyword: mistral
+    - keyword: api
+    - keyword: key
+    - keyword: sdlsk
+national_provider_identifier:
+  id: National Provider Identifier
+  lib: cribl
+  regex: /\b\d{10}\b/gm
+  rulesets:
+    - Health_UnitedStates
+    - Health_Global
+  examples:
+    - "1234567890"
+    - "9874563217"
+    - "1129876543"
+  contextKeywords:
+    - keyword: npi
+    - keyword: id
+    - keyword: provider id
+okta_api_token:
+  id: Okta API Token
+  lib: cribl
+  regex: /00[a-zA-Z0-9]{40}/gm
+  rulesets:
+    - Credentials_SaaS
+  examples:
+    - 00iqMOKIplUddEWA5WEM4YwOkw7RXeGw31lFCMTvZ2
+    - 00iqN0KIplUddE456WEM4YwOkw7pweGw31lFCMTvZ1
+    - 00IQMOKIplUddEWA5WEM3YwOkw7RXeGw31l12MTvZ2
+  contextKeywords:
+    - keyword: okta
+    - keyword: token
+    - keyword: okta_token
+openai_api_key:
+  id: OpenAI API Key
+  lib: cribl
+  regex: /sk-[a-zA-Z0-9]{32,}/gm
+  rulesets:
+    - Credentials_AI
+  examples:
+    - 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
+    - sk-lo1RLw7XU8765UBaSgsNT3BlbkFJdbGbUgbbk5BUG890856
+    - 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
+  contextKeywords:
+    - keyword: token
+    - keyword: openai_api_key
+    - keyword: openai.api_key
+    - keyword: oai
+    - keyword: key
+pagerduty_api_token:
+  id: PagerDuty API Token
+  lib: cribl
+  regex: /\b[A-Za-z0-9_+-]{15,}\b/gm
+  rulesets:
+    - Credentials_Communication
+  examples:
+    - Vc9i8_jGmjuczWF3GXq3
+    - Qwer56789+-_12345
+    - Xyzw98765_abc12345
+  contextKeywords:
+    - keyword: pagerduty
+    - keyword: token
+perplexity_api_key:
+  id: Perplexity API Key
+  lib: cribl
+  regex: /\bpplx-[A-Za-z0-9]{48}\b/gm
+  rulesets:
+    - Credentials_AI
+  examples:
+    - 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
+    - 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
+  contextKeywords:
+    - keyword: perplexity
+    - keyword: pplx
+    - keyword: api
+    - keyword: key
+pgp_private_key:
+  id: PGP Private Key
+  lib: cribl
+  regex: /-----BEGIN PGP PRIVATE KEY BLOCK-----[A-Za-z0-9+/=:#()., \r\n]{300,5000}-----END PGP PRIVATE KEY BLOCK-----/gm
+  rulesets:
+    - Credentials_CryptographicKeys
+  examples:
+    - |-
+      -----BEGIN PGP PRIVATE KEY BLOCK-----
+          Version: BCPG C# v1.6.1.0
+
+          lQOsBFvpYakBCACibZLLmzTZD5DFydo2JQgzNdDWbgBocUMiXJJWE2Bq+X1O97Oz
+          IiDnXVOJf723Mq19i4rLzg+Eo7GDD9jZ5gK2xvfENDbG1IUr4KKY+CCJU5sVG5ns
+          o9XedvkBsZjQp9eOfjE21Wq6FY6YoMvJY/6Xx0wfts/upbP7a9hnF7JWH3t4uIXs
+          EixUvu4I85sSA8VMmv3WTrQxeiyrXPEDtTv8yXFC479c4crJU5Rq5ZsC1UxlYPLc
+          uKNlJGEVuMX/wrCc/XdPq09FycPvqs9FaO7TNHTMBLGKm/AfsYSvoc8cMhPiav/S
+          alp7UEGo8JBxgjvASF3JDw4CVDMT1sVnKQjDABEBAAH/AwMC9eYJDAVWYvZgblW5
+          AeR5iAl+joX+vltC2xUcf43/4eZoPxjs+UlGDTPF/9p+bo2JMZ838x7Q1ur6XNjj
+          QJhEcF0Kz+64eeEl+1OXrCZPefDfdpi7O+ww+wPxNr7vfYRhU8Fa5OOleSmrzTBK
+          bpQr4kl1n/C1yimKY3JajoYrbchJ9yc1B6G3KmLjLGJn+PyBGiS49BOwR7/cMNG0
+          K38O66a1CHTpNC8OZX9jiAgzNOaPMBEpRaaI2cfc/HUU3L2bGoWp7VVEeQULwFha
+          zqzQR569pFy0tt82S15NmzYMP/qJRoZIZB20pC2W74c4NwLqX7BRrnHYHjrSYLN/
+          b15b7pipi2eJfv3twTVfz06Yu9nl9q6jVjnP9HH1LDY2Iz0S2h/6ecSldtxlWaRa
+          S31sctuxdvswoaywGypxq1eb9HWTf1nCmPweXtsEbnJNi9xM8a+iUCTczZLTrfwL
+          QzId3nFk9GNfwutJFqNYB5xEsDpyFYeogkmIDAxbNBofQesrQTD05FLjoJITS/yW
+          6+8lbpDOafbS+5bu9T2cqhC+hGZ6a6rX4htTUoNc6LsdKz2Ks6A1zVyO6tLeGa+x
+          BX4fsqH4qXeowB5fVJiJIN/cfDZiGPAPqXMI0Xk819z5KBxeSu9FzfwX/j4mDS54
+          XyaGEAjWFg+8sXRmW8farHoJy15QYF3T+EpJqzgX92vw8XCNffrRXgCdlTrFK89B
+          XcdDtToGU1kVeBjmCn/xxIfdzh2yEsTaScUsqKNTumdOYXWCDaR8zT/BXmmPu7RR
+          pwPDld4ybSRyHZds9nbnChCl47WyWIZIiYI/WfSo6PD6Xjv5ON7AaiC9ZzXOwsGb
+          AwuRPZvZ6H4OAMaUN6ZcSuHYTB1m56rXO/kAoAMq4bQNdG90b0BtYWlsLmNvbYkB
+          HAQQAQIABgUCW+lhqQAKCRAFjAbxtxrgH2GRCACGtxdXczNKgtfWNnIGZ2lRbpYK
+          cvKAyl+jq45Z6/PamjPo1Jv+mKQ33Q8+bC23Pu9gX+8vTKqUQpJxxuHQ7FSyigtK
+          L0ODACt1fqlI4P5GWH01y4NC1P1Vwfvr/C3HktOFxuqKgmq2JoQTdjoGBZGpOHKY
+          WARbg667MfcdA/tQwd+XpEDLeKC16FQx9d/B1rTG9KbcVBoYPQM0zpOj990rLbO4
+          KtdS7wAqqcsBCy+wSdErUQUfG6OBHamC27rq/OwLnL2fTBgVBPPWmgyTK3XQs7Ad
+          Ie0BPGmB6H+kWXmlmPm9F71Cmz2iTvrvI5O//m0FvsoSXjYvS2OXEB+Wi0Yc
+          =RkKT
+          -----END PGP PRIVATE KEY BLOCK-----
+    - |-
+      -----BEGIN PGP PRIVATE KEY BLOCK-----
+          Version: BCPG C# v1.6.1.0 (GNU/Linux)
+
+          lQOsBFvpYakBCACibZLLmzTZD5DFydo2JQgzNdDWbgBocUMiXJJWE2Bq+X1O97Oz
+          IiDnXVOJf723Mq19i4rLzg+Eo7GDD9jZ5gK2xvfENDbG1IUr4KKY+CCJU5sVG5ns
+          o9XedvkBsZjQp9eOfjE21Wq6FY6YoMvJY/6Xx0wfts/upbP7a9hnF7JWH3t4uIXs
+          EixUvu4I85sSA8VMmv3WTrQxeiyrXPEDtTv8yXFC479c4crJU5Rq5ZsC1UxlYPLc
+          uKNlJGEVuMX/wrCc/XdPq09FycPvqs9FaO7TNHTMBLGKm/AfsYSvoc8cMhPiav/S
+          alp7UEGo8JBxgjvASF3JDw4CVDMT1sVnKQjDABEBAAH/AwMC9eYJDAVWYvZgblW5
+          AeR5iAl+joX+vltC2xUcf43/4eZoPxjs+UlGDTPF/9p+bo2JMZ838x7Q1ur6XNjj
+          QJhEcF0Kz+64eeEl+1OXrCZPefDfdpi7O+ww+wPxNr7vfYRhU8Fa5OOleSmrzTBK
+          bpQr4kl1n/C1yimKY3JajoYrbchJ9yc1B6G3KmLjLGJn+PyBGiS49BOwR7/cMNG0
+          K38O66a1CHTpNC8OZX9jiAgzNOaPMBEpRaaI2cfc/HUU3L2bGoWp7VVEeQULwFha
+          zqzQR569pFy0tt82S15NmzYMP/qJRoZIZB20pC2W74c4NwLqX7BRrnHYHjrSYLN/
+          b15b7pipi2eJfv3twTVfz06Yu9nl9q6jVjnP9HH1LDY2Iz0S2h/6ecSldtxlWaRa
+          S31sctuxdvswoaywGypxq1eb9HWTf1nCmPweXtsEbnJNi9xM8a+iUCTczZLTrfwL
+          QzId3nFk9GNfwutJFqNYB5xEsDpyFYeogkmIDAxbNBofQesrQTD05FLjoJITS/yW
+          6+8lbpDOafbS+5bu9T2cqhC+hGZ6a6rX4htTUoNc6LsdKz2Ks6A1zVyO6tLeGa+x
+          BX4fsqH4qXeowB5fVJiJIN/cfDZiGPAPqXMI0Xk819z5KBxeSu9FzfwX/j4mDS54
+          XyaGEAjWFg+8sXRmW8farHoJy15QYF3T+EpJqzgX92vw8XCNffrRXgCdlTrFK89B
+          XcdDtToGU1kVeBjmCn/xxIfdzh2yEsTaScUsqKNTumdOYXWCDaR8zT/BXmmPu7RR
+          pwPDld4ybSRyHZds9nbnChCl47WyWIZIiYI/WfSo6PD6Xjv5ON7AaiC9ZzXOwsGb
+          AwuRPZvZ6H4OAMaUN6ZcSuHYTB1m56rXO/kAoAMq4bQNdG90b0BtYWlsLmNvbYkB
+          HAQQAQIABgUCW+lhqQAKCRAFjAbxtxrgH2GRCACGtxdXczNKgtfWNnIGZ2lRbpYK
+          cvKAyl+jq45Z6/PamjPo1Jv+mKQ33Q8+bC23Pu9gX+8vTKqUQpJxxuHQ7FSyigtK
+          L0ODACt1fqlI4P5GWH01y4NC1P1Vwfvr/C3HktOFxuqKgmq2JoQTdjoGBZGpOHKY
+          WARbg667MfcdA/tQwd+XpEDLeKC16FQx9d/B1rTG9KbcVBoYPQM0zpOj990rLbO4
+          KtdS7wAqqcsBCy+wSdErUQUfG6OBHamC27rq/OwLnL2fTBgVBPPWmgyTK3XQs7Ad
+          Ie0BPGmB6H+kWXmlmPm9F71Cmz2iTvrvI5O//m0FvsoSXjYvS2OXEB+Wi0Yc
+          =RkKT
+          -----END PGP PRIVATE KEY BLOCK-----
+  contextKeywords:
+    - keyword: pgp
+    - keyword: private_key
+phone:
+  id: Phone
+  lib: cribl
+  regex: /\+?\d{1,3}[\s-]?\(?\d{1,4}\)?[\s-]?\d{3}[\s-]?\d{4}/gm
+  rulesets:
+    - PII_Global
+  examples:
+    - 1(555)123-4567
+    - 1-555-123-4567
+    - "15551234567"
+    - +1(555)123-4567
+    - 1 555 123 4567
+    - +27 21 123 4567
+    - +27-21-123-4567
+    - +351 21 123 4567
+    - +351-21-123-4567
+  contextKeywords:
+    - keyword: phone
+    - keyword: ph
+plaintext_private_key:
+  id: PlainText Private Key
+  lib: cribl
+  regex: /[a-zA-Z0-9_\/]{16,}/gm
+  rulesets:
+    - Credentials_CryptographicKeys
+    - Default
+  examples:
+    - hj65_klhz/trlupok76
+    - d1Hb1fb497XGT75989e
+    - jp1RP1c5WNtbjtcOe3IvXWKD
+  contextKeywords:
+    - keyword: apikey
+    - keyword: privatekey
+    - keyword: api_key
+    - keyword: private_key
+    - keyword: key
+postgresql_connection_information:
+  id: PostgreSQL Connection Information
+  lib: cribl
+  regex: /(PG_USERNAME|PG_PASSWORD|dbusername|dbpassword|spring\.datasource\.postgres\.hikari\.(username|password))\s*=\s*([A-Za-z0-9_.-]+)/gm
+  rulesets:
+    - Credentials_SaaS
+  examples:
+    - PG_USERNAME=postgres 
+    - PG_PASSWORD=m42ploz2wd
+    - dbusername = doadmin
+    - dbpassword = vg498hwegw1udp6s
+    - spring.datasource.postgres.hikari.username=postgres 
+    - spring.datasource.postgres.hikari.password=m42ploz2wd
+  contextKeywords:
+    - keyword: postgre
+    - keyword: pgsql
+    - keyword: psql
+    - keyword: dbpassword
+    - keyword: db_password
+postman_api_key:
+  id: Postman API Key
+  lib: cribl
+  regex: /\bPMAK-[0-9a-f]{24}-[A-Za-z0-9]{32}\b/gm
+  rulesets:
+    - Credentials_SaaS
+  examples:
+    - PMAK-5f4a2b1e8c9d7e6f3a2b1c4d-8e9F2a3B4c5D6e7F8a9B0C1D2E3f4A5B
+    - PMAK-62c583145a91792afb3957e1-83a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5
+  contextKeywords:
+    - keyword: postman
+    - keyword: pmak
+    - keyword: key
+putty_private_key:
+  id: PuTTY Private Key
+  lib: cribl
+  regex: /PuTTY-User-Key-File-[23]:[A-Za-z0-9\s\r\n:,-]{20,200}Private-Lines:\s*\d{1,3}\s*\r?\n[A-Za-z0-9+/=\r\n]{20,2000}\r?\nPrivate-MAC:\s*[0-9a-fA-F]{40,64}/gm
+  rulesets:
+    - Credentials_CryptographicKeys
+    - Default
+  examples:
+    - |-
+      PuTTY-User-Key-File-3: ssh-ed25519
+      Encryption: none
+      Comment: test
+      Public-Lines: 1
+      AAAAB3NzaC1lZDI1NTE5AAAAIC3Zc2VjcmV0cHVibGlj
+      Private-Lines: 2
+      AAAAIEkz5tQ2d8m7qg3U8nQwYp7C9uY3x8n4fM8Q2PZ8=
+      AAAABXVzZXI9
+      Private-MAC: 0123456789abcdef0123456789abcdef01234567
+  contextKeywords:
+    - keyword: key
+    - keyword: private_key
+    - keyword: privatekey
+    - keyword: private-lines
+rsa_private_key_v1:
+  id: RSA Private Key v1
+  lib: cribl
+  regex: /-----BEGIN RSA PRIVATE KEY-----[A-Za-z0-9+/=\r\n\s]{100,5000}-----END RSA PRIVATE KEY-----/gm
+  rulesets:
+    - Credentials_CryptographicKeys
+  examples:
+    - |-
+      -----BEGIN RSA PRIVATE KEY-----
+          MIIEpQIBAAKCAQEA0pj32LapDxsvsOdgVWzkZMdp/k7R+KJhuXLUxFTuRQFlBDcc
+          mIPbkKzcJZO8pTXlRrqa4TiOLmdSM1AAW4cIX6xNYjO6V6Xx7wsXntg2YlYlN59e
+          lbaj08VY59XRwTDNqBnINUVGdJKy2qxe/NUf0+vtp9Fbms4aKYyoP6G6zVUtVjLi
+          vZzG8+3zEJlHJzTu5TTurqYLxPSIJCSxCFWuqcmiO7wFr/IdtzbygmI3D4dlCP51
+          azZ4PnXYVXBb6TeB0FYEC7kAlSMFbKVRkuRAyrLQbxJWJNQOMFRO4XRyaCEbZKtO
+          5ig6zt8An8ncfcNLgYAsvLOgpByq+kU/Ny98CwIDAQABAoIBAQDDQokqKdH965sA
+          TscG7Xul5S7lV3dfLE+nfky/7G8vE+fxTJf64ObG8T78qEoUdDAsr//CKonJhIq2
+          gMqUElM1QbBOCOARPA9hL8uqv5VM/8pqFB3CeiDTzPptmdZtZS6JWb5DhgOZOhsS
+          nRdFHOXxu6ISIw7oLYgcVgn5VZ65mTzN6yB7pKsYkbm0NcJcmLnfuGbpQEP3WmC9
+          X4wO7galKdHXuSxRdcJxCag2k0W7S4UAbp1tPmRAeDdOXqbGL7hu14rUZYtkiuRP
+          546GDvOv+meHpDJve1hZ20CH2kRVq4DC64prPNfRJ1exSd94vlhokWL6SzTXItwm
+          L8TUnHeBAoGBAPTi6WqbVcL9Uy2qJA8fJg7oN4yQ/goOh+mlW3Fsdig0VsQjxWWI
+          ftb/tDv6UyHw50Ms66gT+h4dWepFVFDPb38HAhoU/RvmNCHWd33Nmhd1qf2jOQiR
+          Q9q2qJ0gFgKFlrbJNTOkaFni2UdJ7ySS937C2rdOm5GTOaCODl6M4UjRAoGBANwn
+          sFdT/HeY2lx84+jMxrzVOeNUpelye9G+VYk5poIMBSXX4Qm0V4EhmBOA4dEGwfhR
+          yW/p1TG0uzvOu2igUVx2YcaxUZMLBSny++awUcnAbIoN175vqS0zhGKfKgsK1ak3
+          /8P32zMm1vSz3ZR/+tzgcayWmOE8O1Cfw+Zks24bAoGBAIekjKAVTIrGIOWhYXnS
+          yhTlwaclxOEzLUtY4W7RIh2g6BKascNMuN1EI8Q5IwUg2ChYYGvoLNmzblOadVqR
+          m/OjoSFrUMu8VlIL5oITeW/XKAKq/3Nka05hcMIfvLFG57V1e/eP8JEhWzLmnAUJ
+          NvfK3LU+YGNhRkFNjl4G8N6RAoGBAJMmA/uaqzjU9b6zyzGjDYLRkiucPHjYiGIc
+          sddSrTRnDFnK/SMbYxFwftEqZ8Tqm2N6ZwViaZkbj7nd5+16mmcOyTOg+UErMHxl
+          aHE8kK4k62cq8XTb9Vu8/1NbxyIyT7UXNOCrHdwGrc5JGmVTVT2k1tXgoraJJ6wv
+          2SM1UmjZAoCAFC84w5RPQIK0Y1nwnSNoGYZO4/15gSe2H3De+IPs4LyOP714Isi+
+          2JcO4QPvgRfd5I5FY6FTi7T0Gz2/DXHggv9DXM9Q2yXMhV+3tkTuNFeDwBw7qRGy
+          mCwOcAwHJ6GtCNvBDlpot6SauHEKKpzQobtq7giIEU3aSYR2unNg4wA=
+          -----END RSA PRIVATE KEY-----
+  contextKeywords:
+    - keyword: key
+    - keyword: private_key
+    - keyword: beginrsaprivatekey
+    - keyword: endrsaprivatekey
+    - keyword: rsaprivatekey
+sendgrid_api_key:
+  id: SendGrid API Key
+  lib: cribl
+  regex: /\bSG\.[A-Za-z0-9_-]{22,23}\.[A-Za-z0-9_-]{42,43}\b/gm
+  rulesets:
+    - Credentials_Communication
+  examples:
+    - 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
+    - SG.Km9N2pQrTvXyZ1aB3cD5fG7.Qbb_GXkhDdWmlYeyYYh95TXT5tU6SdSuZmUogJcRIc
+    - SG.Io7L0nOrRtVwX9yZ1aB3dE5.Odd_IZmjFfYonAg0AAj17VZV7vW8UfUwBoWqiLeTKd
+  contextKeywords:
+    - keyword: sendgrid
+    - keyword: sg
+    - keyword: server.password
+shopify_app_secret:
+  id: Shopify App Secret
+  lib: cribl
+  regex: /\b[a-f0-9]{32}\b/gmi
+  rulesets:
+    - Credentials_Financial
+  examples:
+    - 0d3d50ba0e094bca06a7d1dd18e70afd
+    - 1e4e61cb1f0a5cdb17b8e2ee29f81bce
+    - 2f5f72dc2a1b6dec28c9f3ff3a992caf
+  contextKeywords:
+    - keyword: shopify
+    - keyword: shopify_app_secret
+    - keyword: shp
+    - keyword: shpat
+    - keyword: shppa
+shopify_app_key:
+  id: Shopify App Key
+  lib: cribl
+  regex: /\b[A-Za-z0-9]{32}\b/gm
+  rulesets:
+    - Credentials_Financial
+  examples:
+    - a9df38e3152855a450bd01c21f7575dc
+    - b8ce49f4263966b561ce12d32g8686ed
+    - c7df5ag5374a77c672df23e43h9797fe
+  contextKeywords:
+    - keyword: shopify
+    - keyword: shopifyappkey
+    - keyword: shopifyappsecret
+    - keyword: api_key
+    - keyword: api_secret
+singapore_national_registration_identification_card:
+  id: Singapore National Registration Identification Card
+  lib: cribl
+  regex: /[FGMST][0-9]{7}[A-Z]/gm
+  rulesets:
+    - PII_AsiaPacific
+  examples:
+    - S0000002G
+    - T0200002E
+    - F0000002C
+    - G0000002A
+    - M0000002Z
+  contextKeywords:
+    - keyword: nric
+    - keyword: ic
+    - keyword: fin
+    - keyword: national registration identity card
+    - keyword: foreign identification card
+singapore_unique_entity_number:
+  id: Singapore Unique Entity Number
+  lib: cribl
+  regex: /\b([A-Z]?\d{2,4}[A-Z]{2}\d{4}[A-Z]|\d{8,9}[A-Z])\b/gm
+  rulesets:
+    - PII_AsiaPacific
+  examples:
+    - 53480099U
+    - 201712177T
+    - T09LP0001B
+    - T22LL1234A
+    - 202312345A
+    - S99SS1234A
+    - T12UE1234A
+  contextKeywords:
+    - keyword: uen
+    - keyword: unique entity number
+    - keyword: business registration
+    - keyword: acra
+slack_app_token:
+  id: Slack App Token
+  lib: cribl
+  regex: /xapp-1-[A-Z0-9]+-[0-9]+-[a-f0-9]{64}/gm
+  rulesets:
+    - Credentials_Communication
+  examples:
+    - xapp-1-IEMF8IMY1OQ-4037076220459-85c370b433e366de369c4ef5abdf41253519266982439a75af74a3d68d543fb6
+    - xapp-1-BM3V7LC51DA-1441525068281-86641a2582cd0903402ab523e5bcc53b8253098c31591e529b55b41974d2e82f
+  contextKeywords:
+    - keyword: slack
+    - keyword: xapp
+    - keyword: my_slack_token
+    - keyword: bearer
+slack_configuration_token:
+  id: Slack Configuration Token
+  lib: cribl
+  regex: /xoxe\.xox[bp]-1-[A-Za-z0-9-]+/gm
+  rulesets:
+    - Credentials_Communication
+  examples:
+    - xoxe.xoxb-1-Mi0yLTM0MTQwNDE0MDE3Ni0zNjU5NDY0Njg4MTctNTE4MjA3NTQ5NjA4MC01NDEyOTYyODY5NzUxLThhMTBjZmI1ZWIzMGIwNTg0ZDdmMDI5Y2UxNzVlZWVhYzU2ZWQyZTZiODNjNDZiMGUxMzRlNmNjN1111111111
+    - xoxe.xoxp-1-Mi0yLTM0MTQwNDE0MDE3Ni0zNjU5NDY0Njg4MTctNTE4MjA3NTQ5NjA4MC01NDEyOTYyODY5NzUxLThhMTBjZmI1ZWIzMGIwNTg0ZDdmMDI5Y2UxNzVlZWVhYzU2ZWQyZTZiODNjNDZiMGUxMzRlNmNjN1111111111
+  contextKeywords:
+    - keyword: slack
+    - keyword: access_token
+    - keyword: xoxe
+slack_signing_secrets:
+  id: Slack Signing Secrets
+  lib: cribl
+  regex: /[a-f0-9]{32}/gm
+  rulesets:
+    - Credentials_Communication
+  examples:
+    - 034896b597825cb22ececfed139ef9ca
+    - e4befad545eda15ef7bdb724cd4d01d1
+  contextKeywords:
+    - keyword: slack
+    - keyword: signing
+    - keyword: slack_signing_secret
+    - keyword: signing_secret
+slack_user_token:
+  id: Slack User Token
+  lib: cribl
+  regex: /xox[ps]-\d+-\d+-\d+-[a-zA-Z0-9]+/gm
+  rulesets:
+    - Credentials_Communication
+  examples:
+    - xoxp-41684372915-1320496754-45609968301-e708ba56e1517a99f6b5fb07349476ef
+    - xoxs-416843729158-132049654-5609968301-e708ba56e1
+  contextKeywords:
+    - keyword: slack
+    - keyword: token
+    - keyword: slack_token
+    - keyword: xoxs
+    - keyword: xoxp
+slack_webhook_secret:
+  id: Slack Webhook Secret
+  lib: cribl
+  regex: /\bhttps?:\/\/hooks\.slack\.com\/services\/[A-Z0-9]{9,13}\/[A-Z0-9]{9,13}\/[A-Za-z0-9]{24,}/g
+  rulesets:
+    - Credentials_Communication
+  examples:
+    - https://hooks.slack.com/services/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
+    - https://hooks.slack.com/services/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
+  contextKeywords:
+    - keyword: slack
+    - keyword: email_subscription_slack
+    - keyword: hooks.slack
+slack_bot_token:
+  id: Slack Bot Token
+  lib: cribl
+  regex: /\bxoxb-[0-9]{10,15}(?:-[0-9]{10,15})?-[A-Za-z0-9]{22,48}\b/gm
+  rulesets:
+    - Credentials_Communication
+  examples:
+    - xoxb-263594206564-2343594206574-FGqddMF8t08v8N7Oq4i57vs1MBS
+    - xoxb-263594206564-FGqddMF8t08v8N7Oq4i57vs
+    - xoxb-263594206564-2343594206574-FGqddMF8t08v8N7Oq4i57LoTh4l
+  contextKeywords:
+    - keyword: slack
+    - keyword: slack_client
+    - keyword: slack_token
+    - keyword: xoxb
+spanish_foreigners_id_card:
+  id: Spanish Foreigners ID Card
+  lib: cribl
+  regex: /[XYZ]-?\d{7,8}-?[A-Z]/gm
+  rulesets:
+    - PII_EuropeanUnion
+  examples:
+    - X-1234567-A
+    - Y6671688B
+    - X12345678A
+  contextKeywords:
+    - keyword: nie
+    - keyword: numero extranjero
+spanish_personal_tax_id:
+  id: Spanish Personal Tax ID
+  lib: cribl
+  regex: /\b(?:[KLMXYZ]\d{7}[A-Z]|[ABCDEFGHJNPQRSUVW]\d{7}[A-Z0-9])\b/gm
+  rulesets:
+    - PII_EuropeanUnion
+  examples:
+    - B12345678
+    - M1234567A
+    - L1234567L
+    - N12345678
+  contextKeywords:
+    - keyword: nif
+    - keyword: documento
+    - keyword: nacional
+    - keyword: identidad
+spanish_national_id:
+  id: Spanish National ID
+  lib: cribl
+  regex: /\b\d{8}[- ]?[A-Z]\b/gm
+  rulesets:
+    - PII_EuropeanUnion
+  examples:
+    - 12345678Z
+    - 12345678 Z
+    - 12345678-Z
+  contextKeywords:
+    - keyword: dni
+    - keyword: documento nacional de identidad
+square_token:
+  id: Square Token
+  lib: cribl
+  regex: /sq0atp-[A-Za-z0-9_-]+/gm
+  rulesets:
+    - Credentials_Financial
+  examples:
+    - sq0atp-galzvO-5aJ37J_yV-KO1oQ
+    - sq0atp-NgXnwnDdVQr2du0O2MAieg
+  contextKeywords:
+    - keyword: square
+    - keyword: sq0atp
+    - keyword: bearer
+square_token_v2:
+  id: Square Token v2
+  lib: cribl
+  regex: /\bEAAA[A-Za-z0-9_-]{40,80}\b/gm
+  rulesets:
+    - Credentials_Financial
+  examples:
+    - EAAAEMaLGtOCNqh3giwdE5Blj4FyIciKfc7gUGUGN9vvvsey8gb1vsWdESceuX53
+    - EAAAEG_CIiae8s3BbXYqde0Og7OewXJs1hA-6V4K2YCgXQPWL_lUcWyRn1sV1b-Q
+  contextKeywords:
+    - keyword: square
+    - keyword: api
+    - keyword: token
+    - keyword: sandbox_accesstoken
+    - keyword: api_token
+    - keyword: eaaae
+square_credentials:
+  id: Square Credentials
+  lib: cribl
+  regex: /sq0(?:idp|csp)-[A-Za-z0-9_]+/gm
+  rulesets:
+    - Credentials_Financial
+  examples:
+    - sq0idp-Y7WFLOjXXp00XXXp00_0_A 
+    - sq0csp-WnMisBjD0DtEoYeM0ZK7Bi1_cXb0X0oRCN0djXcXXX0
+  contextKeywords:
+    - keyword: square
+    - keyword: squareup
+    - keyword: squareup_api_key
+    - keyword: squareup_api_secret
+    - keyword: sq0idp
+    - keyword: sq0csp
+ssh_dds_public:
+  id: SSH DDS Public
+  lib: cribl
+  regex: /[a-zA-Z0-9@\.]{8,}/gm
+  rulesets:
+    - Credentials_Web
+    - Default
+  examples:
+    - ghjdmoo5giedaiwahC
+    - ghjdmo.5giedaiwahC
+    - grezglkh
+    - cits3003@@
+    - Thoo4Ibael4ie
+  contextKeywords:
+    - keyword: sshpass
+    - keyword: pass
+    - keyword: pwd
+    - keyword: passwd
+standard_mac_address:
+  id: Standard MAC Address
+  lib: cribl
+  regex: /([0-9A-Fa-f]{2}[:-]){5}[0-9A-Fa-f]{2}|[0-9A-Fa-f]{12}/gm
+  rulesets:
+    - Network_Global
+  examples:
+    - 00:1A:2B:3C:4D:5E
+    - 00-1A-2B-3C-4D-5E
+    - 001A2B3C4D5E
+  contextKeywords:
+    - keyword: mac
+    - keyword: addr
+stripe_keys:
+  id: Stripe Keys
+  lib: cribl
+  regex: /sk_live_[a-zA-Z0-9]{24}/gm
+  rulesets:
+    - Credentials_Financial
+  examples:
+    - sk_live_epISNGSkdeXov2frTey7RHAi
+    - sk_live_EeHnL644i6zo4Iyq4v1KdV8H
+    - sk_live_EeHnL644i6zo4Iyq4v1KdV9H
+  contextKeywords:
+    - keyword: stripe
+    - keyword: stripe_secret_key
+    - keyword: stripe_api_key
+    - keyword: sk
+    - keyword: sk_live
+stripe_webhook_secret:
+  id: Stripe Webhook Secret
+  lib: cribl
+  regex: /\bwhsec_[a-zA-Z0-9]{32,80}\b/gm
+  rulesets:
+    - Credentials_Financial
+  examples:
+    - whsec_VV1cfC0WFqnTPzHIAYUnnDS0t9g8I3Az
+    - whsec_b2e1ebdcbdaf9ea3f983cf401e6e6cc1318cdadbecca663b0c8c0dc7f4ad7f87
+  contextKeywords:
+    - keyword: stripe
+    - keyword: stripe_wh_secret
+    - keyword: whsec
+twilio_api_key:
+  id: Twilio API Key
+  lib: cribl
+  regex: /\bSK[a-fA-F0-9]{32}\b(?:\s*[:=]\s*|\s+)[A-Za-z0-9]{32}\b/gm
+  rulesets:
+    - Credentials_Communication
+  examples:
+    - SK1fe059e17c773de4c071a57f9f975873 4bdnawxpp5naxdt54fb4kwawkfnohej8
+    - SK1fe059e17c773de4c071a57f9f975873:4bdnawxpp5naxdt54fb4kwawkfnohej8
+  contextKeywords:
+    - keyword: twilio
+    - keyword: sk
+twilio_master_credentials:
+  id: Twilio Master Credentials
+  lib: cribl
+  regex: /\bAC[a-fA-F0-9]{32}\b(?:\s*[:=]\s*|\s+)[a-fA-F0-9]{32}\b/gm
+  rulesets:
+    - Credentials_Communication
+  examples:
+    - AC598fdd1a56846658f660652ed4810395 ce2337ad21d390367e018828cef2b0ef
+    - AC598fdd1a56846658f660652ed4810395:ce2337ad21d390367e018828cef2b0ef
+  contextKeywords:
+    - keyword: twilio
+    - keyword: auth_token
+    - keyword: account_sid
+twitter_access_token:
+  id: Twitter Access Token
+  lib: cribl
+  regex: /\b[a-zA-Z0-9]{25,50}\b/gm
+  rulesets:
+    - Credentials_Social
+  examples:
+    - qgmlPcoo2F3Ws6LWJLmuTgOVa
+    - sME0sSMXOXHO3qG06tEwSyejzvlYlvLzx1ynKRBqGjbuYRIPZa
+    - B3khhhiCGZl2tPnNcwBAabcde
+    - 5bDnGvuoR62Lv5VtVdZmRASE3n4SpvdnxiT45CXKvH
+    - 6TKONeTEZTLo9QWcUohTf6rhv
+    - LG4y1E2aexUNql425UcQ6ZEvoyHk1ZGKzHkhLofMV7qZhhGuRm
+  contextKeywords:
+    - keyword: twitter
+    - keyword: consumer
+    - keyword: key
+    - keyword: consumer_key
+    - keyword: consumer_secret
+    - keyword: twitter_consumer
+    - keyword: social_auth
+uk_drivers_license_numbers_great_britain:
+  id: UK Drivers License Numbers Great Britain
+  lib: cribl
+  regex: /[A-Z]{5}[0-9]{6}[A-Z]{2}[0-9][A-Z0-9]{2}[0-9]{2}/gm
+  rulesets:
+    - PII_UnitedKingdom
+  examples:
+    - JONES849339TS8AD01
+    - SMITH807150AB9AC02
+  contextKeywords:
+    - keyword: driver
+    - keyword: drivers
+    - keyword: license
+    - keyword: driverlicense
+    - keyword: driverslicense
+    - keyword: dl
+uk_drivers_license_numbers_northern_ireland:
+  id: UK Drivers License Numbers Northern Ireland
+  lib: cribl
+  regex: /\b\d{8}\b/gm
+  rulesets:
+    - PII_UnitedKingdom
+  examples:
+    - "12345678"
+    - "98765432"
+    - "19283746"
+  contextKeywords:
+    - keyword: driver
+    - keyword: drivers
+    - keyword: license
+    - keyword: driverlicense
+    - keyword: driverslicense
+    - keyword: dl
+uk_national_health_service_number:
+  id: UK National Health Service Number
+  lib: cribl
+  regex: /\b\d{3}[ -]?\d{3}[ -]?\d{4}\b/gm
+  rulesets:
+    - PII_UnitedKingdom
+  examples:
+    - 485 777 3456
+    - "4857773456"
+    - 485-777-3456
+    - 221 098 9876
+    - 234-456-7890
+    - 714 209 8765
+  contextKeywords:
+    - keyword: nhs
+    - keyword: national health service number
+    - keyword: patient
+    - keyword: id
+uk_national_insurance_number:
+  id: UK National Insurance Number
+  lib: cribl
+  regex: /\b([A-Z]{2}\d{6}[A-Z])\b/gm
+  rulesets:
+    - PII_UnitedKingdom
+  examples:
+    - QQ123456B
+    - AA987654C
+    - WE192837Z
+  contextKeywords:
+    - keyword: ni
+    - keyword: nino
+    - keyword: national insurance number
+uk_passport_number:
+  id: UK Passport Number
+  lib: cribl
+  regex: /\b([A-Z]\d{8}|\d{9})\b/gm
+  rulesets:
+    - PII_UnitedKingdom
+  examples:
+    - "108376537"
+    - A12345678
+    - "533380006"
+    - E87654323
+  contextKeywords:
+    - keyword: uk
+    - keyword: passport
+http_url:
+  id: HTTPS/HTTP URL
+  lib: cribl
+  regex: /https?:\/\/[\w.-]+\.[a-zA-Z]{2,6}(?:\/[^\s"'<>]*)?/gm
+  rulesets:
+    - Network_Global
+  examples:
+    - https://developer.mozilla.org/en-US/docs/Learn_web_development/
+    - https://cribl.io/ai-use-cases-cribl-copilot/
+    - https://www.google.com/search?q=I%27m+Feeling+Curious&csf=b&ct=ifl&cad=2:curious&ei=T4CaaKm0KNiiur8P4qeOsAg&ved=0ahUKEwjpl_6C-IOPAxVYke4BHeKTA4YQnRsIHg&rct=j
+    - https://pkg.go.dev/net/url
+    - https://academicguides.waldenu.edu/library/internetbasics/webaddresses
+    - https://development.net/
+    - http://example.com/path
+  contextKeywords:
+    - keyword: url
+    - keyword: link
+www_url:
+  id: WWW URL
+  lib: cribl
+  regex: /www\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*(?:\/[^\s"'<>]*)?/gm
+  rulesets:
+    - Network_Global
+  examples:
+    - www.supremecourt.gov/opinions/12pdf/11-697_d1o2.pdf
+    - www.google.com
+    - www.example.org/path/to/resource
+    - www.cribl.io
+  contextKeywords:
+    - keyword: url
+    - keyword: link
+vercel_api_access_token:
+  id: Vercel API Access Token
+  lib: cribl
+  regex: /[A-Za-z0-9]{23,24}/gm
+  rulesets:
+    - Credentials_AI
+  examples:
+    - lzKIXkSPwRa9c0wGlo0U6kdf
+    - 8y4LyJt4VYHfSJpiUELU34Bp
+    - Ae8SkAZsUZ6xDT2dcdG2eP1e
+  contextKeywords:
+    - keyword: vercel
+    - keyword: auth
+    - keyword: bearer
+    - keyword: token
+    - keyword: turbo
+x_ai_api_key:
+  id: X AI API Key
+  lib: cribl
+  regex: /\b(?:xai-[A-Za-z0-9_-]{80,120}|[A-Za-z0-9_-]{64,128})\b/gm
+  rulesets:
+    - Credentials_AI
+  examples:
+    - xai-tyk7I9n4Je8cN6Ok5H8eq8NhKcpbu6DpGyBnj2rrppSoMMHpftc6RSPSY2EKbPeqGSdO85Y8N0DstKOD
+    - uzl8J0o5Kf9dO7Pl6I9fr9OiLdqcv7EqHzCok3ssqqTpNNIqgud7STQTZ3FLcQfrHTp96Z9O1EtuLPE
+  contextKeywords:
+    - keyword: x
+    - keyword: xai
+    - keyword: api
+    - keyword: key
+algolia_application_id:
+  id: Algolia Application ID
+  lib: cribl
+  regex: /\b[A-Z0-9]{10}\b/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - O209R1PN3N
+    - OH2GRAP30N
+    - B2NW9U3W8F
+    - 2D20AW43DA
+  contextKeywords:
+    - keyword: algolia
+    - keyword: app_id
+    - keyword: client_id
+algolia_api_key:
+  id: Algolia API Key
+  lib: cribl
+  regex: /\b[a-f0-9]{32}\b/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - 3c039c651368a6b0f7640dbda46bfadc
+    - 476aee33e12b4ef08e8f1ba9c4b638c0
+    - b782df1739614041699a45f8079a3623
+    - d9ad5cd8c4a29789099c7521561228dc
+  contextKeywords:
+    - keyword: algolia
+    - keyword: api_key
+    - keyword: client_secret
+amqp_connection_uri:
+  id: AMQP Connection URI
+  lib: cribl
+  regex: /amqps?:\/\/[^:\/\s"']+:[^@\/\s"']+@[^\/\s"']+(?::\d+)?(?:\/[^\s"']*)?/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - amqp://root:m42xloz2wd@google.com:5434/thegift
+    - amqps://root:m42xloz2wd@google.com:5434/thegift
+    - amqp://root:m42p!o@z2wd@google.com
+    - amqp://admin:fieogfb1234voigi@br1.google.com:5672
+azure_cosmosdb_master_key:
+  id: Azure Cosmos DB Master Key
+  lib: cribl
+  regex: /[A-Za-z0-9+\/]{86,88}={0,2}/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - H0maE9FWji2oHBsj9tuj5FREJRQGXRTIAJ3fA3CS46IGK3UcjeKy1DCFHNDt4oj4nq4Bh8YYujpuAFDddR5atw==
+    - K1nbF0GXki3pICst0uj6GSFKRQHXRTIAJ4gB4DT57JHL4VdkfLz2EDGINEu5pk5or5Ci9ZZvkqrvBGEeeS6bux==
+    - M2ocG1HYlj4qJDtu1vk7HTGLSRIXUTKBK5hC5EU68KIM5WemgMa3FEHJOFv6ql6ps6Dj0AAwnswsCHFffT7cwx==
+  contextKeywords:
+    - keyword: master_key
+    - keyword: account_key
+    - keyword: cosmosdb
+db2_connection_uri:
+  id: DB2 Connection URI
+  lib: cribl
+  regex: /(db2|ibm_db_sa):\/\/[^:\/\s"']+:[^@\/\s"']+@[^\/\s"']+(?::\d+)?(?:\/[^\s"']*)?/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - db2://root:m42ploz2wd@google.com:5434/hellothere
+    - ibm_db_sa://user:str0ngp4ss@google.com:3000/hellothere
+    - ibm_db_sa://user:str0ngp@ss!@google.com:3000/hellothere
+elastic_cloud_credentials:
+  id: Elastic Cloud Credentials
+  lib: cribl
+  regex: /[A-Za-z0-9+\/]{20,80}={0,2}|[A-Za-z0-9]{3,20}:[A-Za-z0-9+\/]{20,80}={0,2}/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - dXNlcm5hbWU6cGFzc3dvcmQ6aGVsbG93b3JsZA==
+    - elastic:DnFaOpmK9WIMGIxMnLRZAVHJzxxYoqlGRZEGLWqJXNI=
+    - username:QUtJQUlPU0ZPRE5ON0VYQU1QTEU6YUs0QmdITExraERCc2s3M09QOEdld3Nvekhzb3RqOE5zcUdG
+  contextKeywords:
+    - keyword: elastic
+    - keyword: elasticsearch
+    - keyword: cloud
+forestadmin_api_key:
+  id: Forest Admin API Key
+  lib: cribl
+  regex: /\b[A-Za-z0-9]{20,128}\b/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - BtEsrpitMM5NtSUYMEflR7vDKdTmEfLg
+    - da4c26a602bc9f3aac71abd18237f0c4fe99eb28ef22ef5ccba0efdf0d5a1c1940624657bf234ab55993045a348fc0f7
+    - c8363f22783c644071f7bde76df69734b95abf514045fc59
+  contextKeywords:
+    - keyword: auth_secret
+    - keyword: forest
+ftp_connection_uri:
+  id: FTP Connection URI
+  lib: cribl
+  regex: /(s?ftp):\/\/[^:\/\s"']+:[^@\/\s"']+@[^\/\s"']+(?::\d+)?(?:\/[^\s"']*)?/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - ftp://supernameHH:kjlrtq2017@givz.eju.edu.cn
+    - ftp://supernameHH:$pwdStartingWithDollar2017@givz.eju.edu.cn
+    - sftp://supernameHH:kjlrtq2017@givz.eju.edu.cn:22
+    - sftp://anonymous:kjlrtq2017@givz.eju.edu.cn:22/my_db/file/path
+influxdb_token:
+  id: InfluxDB Token
+  lib: cribl
+  regex: /[A-Za-z0-9_-]{60,}/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - aGVsbG93b3JsZGhlbGxvd29ybGRoZWxsb3dvcmxkaGVsbG93b3JsZGhlbGxvd29y
+    - ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJaUlscE5WQ0o5TG1sdGFHRnRh
+    - dGhpc2lzYWZha2VpbmZsdXhkYnRva2VudGhhdGlzc2ltdWxhdGVkZm9ydGVzdA
+  contextKeywords:
+    - keyword: influxdb
+    - keyword: token
+    - keyword: influx
+ldap_connection_uri:
+  id: LDAP Connection URI
+  lib: cribl
+  regex: /ldaps?:\/\/[^:\/\s"']+:[^@\/\s"']+@[^\/\s"']+(?::\d+)?(?:\/[^\s"']*)?/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - ldap://user:password@ldap.example.com:389
+    - ldaps://admin:secret123@ldap.company.com:636
+    - ldap://cn=admin,dc=example,dc=com:mypassword@server.local
+mongodb_connection_uri:
+  id: MongoDB Connection URI
+  lib: cribl
+  regex: /mongodb(\+srv)?:\/\/[^:\/\s"']+:[^@\/\s"']+@[^\/\s"']+(?::\d+)?(?:\/[^\s"']*)?/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - mongodb://user:password@localhost:27017/database
+    - mongodb+srv://user:pass123@cluster.mongodb.net/mydb
+    - mongodb://admin:secret@mongo.server.com:27017
+mongodb_atlas_api_key:
+  id: MongoDB Atlas API Key
+  lib: cribl
+  regex: /\b[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}\b/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - 12345678-abcd-1234-5678-123456789abc
+    - 9a8b7c6d-5e4f-3210-9876-fedcba098765
+    - f1e2d3c4-b5a6-9879-8765-4321098765fe
+  contextKeywords:
+    - keyword: atlas
+    - keyword: mongodb
+    - keyword: api_key
+mongodb_atlas_connection_string:
+  id: MongoDB Atlas Connection String
+  lib: cribl
+  regex: /mongodb\+srv:\/\/[^:\/\s"']+:[^@\/\s"']+@[a-zA-Z0-9\-]+\.mongodb\.net/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - mongodb+srv://user:password@cluster0.mongodb.net
+    - mongodb+srv://admin:secret123@mycluster.mongodb.net
+    - mongodb+srv://dbuser:mypass@production.mongodb.net
+mssql_connection_uri:
+  id: MSSQL Connection URI
+  lib: cribl
+  regex: /mssql:\/\/[^:\/\s"']+:[^@\/\s"']+@[^\/\s"']+(?::\d+)?(?:\/[^\s"']*)?/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - mssql://root:m42ploz2wd@google.com:5434/thegift
+    - mssql://root:m42p!o@2wd@google.com:5434/thegift
+    - mssql://user:password@sqlserver.local:1433/database
+neo4j_connection_uri:
+  id: Neo4j Connection URI
+  lib: cribl
+  regex: /neo4j(\+s)?:\/\/[^:\/\s"']+:[^@\/\s"']+@[^\/\s"']+(?::\d+)?(?:\/[^\s"']*)?/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - neo4j://user:password@localhost:7687
+    - neo4j+s://admin:secret123@neo4j.server.com:7687
+    - neo4j://dbuser:mypass@graph.database.local:7474
+oracle_connection_uri:
+  id: Oracle Connection URI
+  lib: cribl
+  regex: /oracle:\/\/[^:\/\s"']+:[^@\/\s"']+@[^\/\s"']+(?::\d+)?(?:\/[^\s"']*)?/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - oracle://root:p42pgsx0pf@google.com:5434/thegift
+    - oracle://root:k44p!o@1kb@google.com:5434/thegift
+    - oracle://user:password@oracle.server.com:1521/database
+planetscale_oauth_token:
+  id: PlanetScale OAuth Token
+  lib: cribl
+  regex: /ps_[a-z0-9]{32}/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - ps_1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p
+    - ps_9z8y7x6w5v4u3t2s1r0q9p8o7n6m5l4k
+    - ps_abcdef0123456789abcdef0123456789
+  contextKeywords:
+    - keyword: planetscale
+    - keyword: oauth
+    - keyword: token
+planetscale_service_token:
+  id: PlanetScale Service Token
+  lib: cribl
+  regex: /pscale_tkn_[a-zA-Z0-9_-]{32,64}/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - pscale_tkn_abcd1234efgh5678ijkl9012mnop3456
+    - pscale_tkn_zyxw9876vuts5432rqpo1098nmlk4321
+    - pscale_tkn_1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p
+  contextKeywords:
+    - keyword: planetscale
+    - keyword: service
+    - keyword: token
+postgresql_connection_uri:
+  id: PostgreSQL Connection URI
+  lib: cribl
+  regex: /postgres(ql)?:\/\/[^:\/\s"']+:[^@\/\s"']+@[^\/\s"']+(?::\d+)?(?:\/[^\s"']*)?/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - postgres://user:password@localhost:5432/database
+    - postgresql://admin:secret123@postgres.server.com:5432/mydb
+    - postgres://dbuser:mypass@postgres.local/production
+redis_connection_uri:
+  id: Redis Connection URI
+  lib: cribl
+  regex: /rediss?:\/\/[^:\/\s"']+:[^@\/\s"']+@[^\/\s"']+(?::\d+)?(?:\/[^\s"']*)?/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - redis://root:m42ploz2wd@google.com:5434/thegift
+    - rediss://root:m42ploz2wd@google.com:5434/thegift
+    - rediss://root:m42p!o@2wd@google.com:5434/thegift
+smb_connection_uri:
+  id: SMB Connection URI
+  lib: cribl
+  regex: /(smb|cifs):\/\/[^:\/\s"']+:[^@\/\s"']+@[^\/\s"']+(?:\/[^\s"']*)?/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - smb://user:password@server.example.com/share
+    - cifs://domain\\user:password@192.168.1.100/files
+    - smb://admin:secret123@fileserver.local/documents
+supabase_jwt_secret:
+  id: Supabase JWT Secret
+  lib: cribl
+  regex: /eyJ[A-Za-z0-9_.-]{100,}/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im15cHJvamVjdCIsInJvbGUiOiJhbm9uIiwiaWF0IjoxNjg2NzM2ODAwLCJleHAiOjE5NjQ1Nzc2MDB9
+  contextKeywords:
+    - keyword: supabase
+    - keyword: jwt
+    - keyword: anon
+supabase_service_role_jwt:
+  id: Supabase Service Role JWT
+  lib: cribl
+  regex: /eyJ[A-Za-z0-9_.-]{100,}/gm
+  rulesets:
+    - Credentials_Storage
+  examples:
+    - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im15cHJvamVjdCIsInJvbGUiOiJzZXJ2aWNlX3JvbGUiLCJpYXQiOjE2ODY3MzY4MDAsImV4cCI6MTk2NDU3NzYwMH0
+  contextKeywords:
+    - keyword: service_role
+    - keyword: supabase
+    - keyword: jwt
+anypoint_client_id:
+  id: Anypoint Client ID
+  lib: cribl
+  regex: /[0-9A-Fa-f]{32}/gm
+  rulesets:
+    - Credentials_Identity
+  examples:
+    - "421c48999fba7ee2b6a7e8dec374a945"
+    - b971f88cc04c826ec1057ac455a8d45e
+    - 6512c3ce1ea919a052ccf220dffe6242
+  contextKeywords:
+    - keyword: anypoint
+    - keyword: client
+    - keyword: id
+anypoint_client_secret:
+  id: Anypoint Client Secret
+  lib: cribl
+  regex: /[0-9A-Fa-f]{32}/gm
+  rulesets:
+    - Credentials_Identity
+  examples:
+    - d5D06e8f5c0a6c26eDE090a369ADDFeb
+    - 7cB7138d43A5b80447C851d022a82658
+    - 765C0f1a2144689356cfcaeCD2798a65
+  contextKeywords:
+    - keyword: anypoint
+    - keyword: client
+    - keyword: secret
+auth0_client_id:
+  id: Auth0 Client ID
+  lib: cribl
+  regex: /[A-Za-z0-9]{32}/gm
+  rulesets:
+    - Credentials_Identity
+  examples:
+    - STvPYZ1pCeJp2tyVdDDgm9DySu1VIPTc
+    - o9Wc0ryyqfJ7dLpxq5YeJbqjPxtQtdxf
+    - gHEasDS1tiUfytPvmsFKyJh4zLL0MHqk
+  contextKeywords:
+    - keyword: auth0
+    - keyword: client
+    - keyword: id
+auth0_client_secret:
+  id: Auth0 Client Secret
+  lib: cribl
+  regex: /[A-Za-z0-9_-]{64}/gm
+  rulesets:
+    - Credentials_Identity
+  examples:
+    - _Foy7l7Z8DdZ09YfR95JJWaabWVFp5XAEDZbTlHqTDMtMXwlrnl21Z5ARqYJ3XSr
+    - dXXMTdnegQX8B2SgSsO7dWr4ETe5dlcIpjYuVRD3W91bJHElroeMZwBrL43xhIaz
+    - mqOILPln68FNv6a0EQnYHq7TuqPb0wvZKbhEtPSoLeIIj1LckFyoKcT5CAE_bhIH
+  contextKeywords:
+    - keyword: auth0
+    - keyword: client
+    - keyword: secret
+azure_ad_client_secret:
+  id: Azure Active Directory Client Secret
+  lib: cribl
+  regex: /[A-Za-z0-9~]{40}/gm
+  rulesets:
+    - Credentials_Identity
+  examples:
+    - 7lc8Q~Fzcideaz5fd64d6EZ41F6SD1f65z14EcTW
+    - 3~K7Q~yxHSpLEt8z5YsP~pMcmAMOPlwxG4JcXbTg
+    - 4Qq8Q~O1jwfJ1xpddz1561SFen1vSPy6pP9~raJQ
+  contextKeywords:
+    - keyword: azure
+    - keyword: tenant
+    - keyword: client
+duo_integration_key:
+  id: Duo Integration Key
+  lib: cribl
+  regex: /[A-Z0-9]{20}/gm
+  rulesets:
+    - Credentials_Identity
+  examples:
+    - XOHQUEIZANG7QUAEJIUW
+    - R6WT1QZLJJR6UB98GJLL
+    - CFJC6NBJPACJDTGY326X
+  contextKeywords:
+    - keyword: duosecurity
+    - keyword: ikey
+    - keyword: integration
+duo_secret_key:
+  id: Duo Secret Key
+  lib: cribl
+  regex: /[A-Za-z0-9]{40}/gm
+  rulesets:
+    - Credentials_Identity
+  examples:
+    - IexipeeveevoLeibiethohChoh2heitapheesuTh
+    - IflBj2xg0tbi05qisEdfy2PK6aIBcyTlMOmRDV8e
+    - iKYVSvJOphQCN2IlosicLeCj22h2OOFPIz36JlwW
+  contextKeywords:
+    - keyword: duosecurity
+    - keyword: skey
+    - keyword: secret
+keycloak_client_id:
+  id: Keycloak Client ID
+  lib: cribl
+  regex: /\b(?:[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})\b/gm
+  rulesets:
+    - Credentials_Identity
+  examples:
+    - 528bed53-f405-406a-96c0-5e921c7b39fe
+    - 2046f7b3-b878-4bc5-8f7f-57b24ce19d85
+    - ed2760fa-6f52-4499-9be4-c8e5d0730d2c
+  contextKeywords:
+    - keyword: keycloak
+    - keyword: client
+    - keyword: id
+keycloak_client_secret:
+  id: Keycloak Client Secret
+  lib: cribl
+  regex: /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/gm
+  rulesets:
+    - Credentials_Identity
+  examples:
+    - 63488e67-3e19-43de-997e-833673aea340
+    - 0aa1dabc-1d8a-4c00-85c2-82bc88c42dc7
+    - f12f222d-624f-4770-9ff2-abec47711aea
+  contextKeywords:
+    - keyword: keycloak
+    - keyword: client
+    - keyword: secret
+okta_client_id:
+  id: Okta Client ID
+  lib: cribl
+  regex: /0oa[A-Za-z0-9_-]{10,20}/gm
+  rulesets:
+    - Credentials_Identity
+  examples:
+    - 0oaq5duedN0lmmT143i4
+    - 0oa7q9L6VR6-jYCS-sfH
+    - 0oaRJRuuEFz40M-ITClR
+  contextKeywords:
+    - keyword: okta
+    - keyword: client
+    - keyword: id
+okta_client_secret:
+  id: Okta Client Secret
+  lib: cribl
+  regex: /[A-Za-z0-9_-]{40}/gm
+  rulesets:
+    - Credentials_Identity
+  examples:
+    - 3Be9-tDiFMDp6kYdmQDsbUFEVy7K2_wb0lsje2vw
+    - 17TipXfLVJW8N-942hJbXfchCw3nBFuj9NlHCteB
+    - 9mjOdLmkbQ_AEFWNll31cyyDUOyx2ReKfexc321M
+  contextKeywords:
+    - keyword: okta
+    - keyword: client
+    - keyword: secret
+pingidentity_client_id:
+  id: PingIdentity Client ID
+  lib: cribl
+  regex: /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/gm
+  rulesets:
+    - Credentials_Identity
+  examples:
+    - 6ed8Fe95-6E39-BD7C-5DAE-44ffEd3c8aE3
+    - 01575758-E85c-4962-9768-7415246f288B
+    - 90a966d9-5C0a-4732-bF49-862B00eaFF4F
+  contextKeywords:
+    - keyword: pingidentity
+    - keyword: pingone
+    - keyword: client
+pingidentity_client_secret:
+  id: PingIdentity Client Secret
+  lib: cribl
+  regex: /[A-Za-z0-9._~\-]{64}/gm
+  rulesets:
+    - Credentials_Identity
+  examples:
+    - 4cFwC5YwNPi.~WC8Oc71H.p68yA7qRj8rrbfGP.-b_cblhj8dPI93ME8PE70TYFX
+    - L8d4pq.x.RHdgRz3_sYV8Fvtb40wX-Zu_Ke7kO14.HtyxUfB.RthW2VReKA5xv2I
+    - _IDUTUh9CiNbAqt6J6p8n3P8BQ1slJFWDzXgx79Z8Y4uodF8XBtoVYL.Jl5axr8G
+  contextKeywords:
+    - keyword: pingidentity
+    - keyword: pingone
+    - keyword: secret
+sslmate_api_key:
+  id: SSLMate API Key
+  lib: cribl
+  regex: /\d{5}_[A-Za-z0-9]{20}/gm
+  rulesets:
+    - Credentials_Identity
+  examples:
+    - 10000_r90kriAAAAAseZJwsmZY
+    - 67858_97DurNBKcJiDiDIqDA6s
+    - 64540_7qJTXH9pJCMfIeCfQabL
+  contextKeywords:
+    - keyword: sslmate
+    - keyword: api
+    - keyword: key
+akamai_api_credentials:
+  id: Akamai API Credentials
+  lib: cribl
+  regex: /(?:akab-[A-Za-z0-9]{16}-[A-Za-z0-9]{16}|[0-9A-Za-z+\/\-]{30})/gm
+  rulesets:
+    - Credentials_CDN
+  examples:
+    - akab-wbcrdthTe6CX5wIf-XrbndvOagHmGgNUs
+    - 320622PO/kO+-SfwAGA-mG5+zkhqex
+  contextKeywords:
+    - keyword: akab
+    - keyword: akamaiapis
+    - keyword: akamai
+bunny_net_api_key:
+  id: Bunny.net API Key
+  lib: cribl
+  regex: /\b[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}(?:[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})?\b/gm
+  rulesets:
+    - Credentials_CDN
+  examples:
+    - 30a36544-edef-4c28-9487-63c5bf093e186ed56a9f-0b2e-4084-be6d-17cb4097e1ad
+    - b4d9efeb-0aba-4981-82ac-a410c21ad78b
+  contextKeywords:
+    - keyword: bunny
+    - keyword: bunny
+cloudflare_api_credentials:
+  id: Cloudflare API Token
+  lib: cribl
+  regex: /[A-Za-z0-9_-]{40}/gm
+  rulesets:
+    - Credentials_CDN
+  examples:
+    - 8wXU_dJJM-wQcDfBDGMh31-Jnw8UK__7mExAmPle
+  contextKeywords:
+    - keyword: cloudflare
+    - keyword: token
+cloudflare_ca_key:
+  id: Cloudflare Certificate Authority Key
+  lib: cribl
+  regex: /v1\.0-[0-9A-Fa-f]{16,}(?:-[0-9A-Fa-f]{16,})+/gm
+  rulesets:
+    - Credentials_CDN
+  examples:
+    - v1.0-125a8b5519b126526fc3640d-4734f25dc3e1f768241132453456747648735645637653785ccc7570dda15e8fa31cd2ba0888249be88800f8ac21998d8cee2016ebca71588c5ad4034b3cfcefe5c30aea43141165
+  contextKeywords:
+    - keyword: cloudflare
+    - keyword: user-service
+cloudflare_auth_credentials:
+  id: Cloudflare Authentication Credentials
+  lib: cribl
+  regex: /\b[A-Fa-f0-9]{37}\b/gm
+  rulesets:
+    - Credentials_CDN
+  examples:
+    - 78aa565a1a17665b5c6444b96fd9175a45f6f
+  contextKeywords:
+    - keyword: cloudflare
+    - keyword: apikey
+cloudflare_tunnel:
+  id: Cloudflare Tunnel Credentials
+  lib: cribl
+  regex: /[A-Za-z0-9+/]{42}(?:[A-Za-z0-9+/]{2}|[A-Za-z0-9+/]=|==)/gm
+  rulesets:
+    - Credentials_CDN
+  examples:
+    - tcVaKrbDCInb7cjCeoY6B9hRas5TeSU7+eqsIqxHyuc=
+  contextKeywords:
+    - keyword: cloudflare
+    - keyword: accounttag
+    - keyword: tunnelid
+
+cloudinary_api_secret:
+  id: Cloudinary API Secret
+  lib: cribl
+  regex: /[A-Za-z0-9_]{27}/gm
+  rulesets:
+    - Credentials_CDN
+  examples:
+    - uqe1_KhvuIoRfScRwaKy32SrFs9
+  contextKeywords:
+    - keyword: cloudinary
+    - keyword: api_secret
+    - keyword: cloudinary_url
+fastly_personal_token:
+  id: Fastly Personal Token
+  lib: cribl
+  regex: /[0-9A-Za-z\-]{32}/gm
+  rulesets:
+    - Credentials_CDN
+  examples:
+    - 7TCVltde6-TNRSLzQQ5cEExSLi2JxS3G
+  contextKeywords:
+    - keyword: fastly
+    - keyword: apikey
+dea_registration_number:
+  id: DEA Registration Number
+  lib: cribl
+  regex: /[A-Za-z]{2}\d{7}/gm
+  rulesets:
+    - Health_Global
+  examples:
+    - AB1234567
+    - FM9876543
+    - BX1234567
+  contextKeywords:
+    - keyword: dea number
+    - keyword: dea registration
+national_drug_code:
+  id: National Drug Code (NDC)
+  lib: cribl
+  regex: /\b\d{4}-\d{4}-\d{2}\b|\b\d{5}-\d{3}-\d{2}\b|\b\d{5}-\d{4}-\d\b|\b\d{10}\b/gm
+  rulesets:
+    - Health_Global
+  examples:
+    - 1234-5678-90
+    - 12345-678-90
+    - 12345-6789-0
+  contextKeywords:
+    - keyword: national drug code
+    - keyword: ndc
+unique_device_identifier:
+  id: Unique Device Identifier (UDI)
+  lib: cribl
+  regex: /(?:\(01\)\d{14}(?:\([0-9]{2}\)[0-9A-Z]{1,20})*|\+[0-9A-Z]{6,25}(?:\/[0-9A-Z]{1,25})?|=\/[0-9A-Z]{6,})/gm
+  rulesets:
+    - Health_Global
+  examples:
+    - "(01)01234567890123(17)240101(10)ABC123"
+    - +A123B456C7D
+    - =/A9999XYZ100T0944
+  contextKeywords:
+    - keyword: udi
+    - keyword: device identifier
+    - keyword: unique device
+datadog_api_key:
+  id: Datadog API Key
+  lib: cribl
+  regex: /[A-Fa-f0-9]{32}/gm
+  rulesets:
+    - Credentials_Monitoring
+  examples:
+    - 3c0c3965368a6b10f7640dbda46abfdc
+    - dd52c29224affe29d163c6bf99e5c34f
+  contextKeywords:
+    - keyword: datadog
+    - keyword: dd_api
+
+dynatrace_token_v2:
+  id: Dynatrace Token v2
+  lib: cribl
+  regex: /dt0[A-Za-z]\d{2}\.[A-Z0-9]{24}\.[A-Z0-9]{64}/gm
+  rulesets:
+    - Credentials_Monitoring
+  examples:
+    - dt0c01.ST2EY72KQINMH574WMNVI7YN.G3DFPBEJYMODIDAEX454M7YWBUVEFOWKPRVMWFASS64NFH52PX6BNDVFFM572RZM
+  contextKeywords:
+    - keyword: dynatrace
+    - keyword: dt0
+grafana_cloud_api_key:
+  id: Grafana Cloud API Key
+  lib: cribl
+  regex: /glc_[A-Za-z0-9+/=]{40,}/gm
+  rulesets:
+    - Credentials_Monitoring
+  examples:
+    - "glc_eyJvIjoiMjY2MTczIiwibI6Im1ldGEtbW9uaxRvcmluZy10ZXN0IiwiayI6IjAxdKeH7KTUvWuIqCfHlMKE9EhJcZH2to"
+  contextKeywords:
+    - keyword: grafana
+    - keyword: glc
+grafana_service_account_token:
+  id: Grafana Service Account Token
+  lib: cribl
+  regex: /glsa_[A-Za-z0-9_-]{40,50}/gm
+  rulesets:
+    - Credentials_Monitoring
+  examples:
+    - glsa_bAHjRcDfeZDKu0OqlR41bIbfCW9icC6b_6c3478fb
+  contextKeywords:
+    - keyword: grafana
+    - keyword: glsa
+grafana_personal_token:
+  id: Grafana Personal Token
+  lib: cribl
+  regex: /eyJ[0-9A-Za-z+/=]{30,}/gm
+  rulesets:
+    - Credentials_Monitoring
+  examples:
+    - "eyJrIjoiK0tTcps1UlY6RnFKDFFVaEFrNFJRaE2XamIrPrZYbk"
+  contextKeywords:
+    - keyword: grafana
+lacework_api_key:
+  id: Lacework API Key
+  lib: cribl
+  regex: /\b[A-Z0-9]+_[A-F0-9]{48}\b/gm
+  rulesets:
+    - Credentials_Monitoring
+  examples:
+    - SAFEACC_F3758175A0533880B17581CF6B4DF862A9D9A737A5CC192C
+    - S4FEACC_F3758175A0533880B17581CF6B4DF862A9D9A737A5CC192C
+  contextKeywords:
+    - keyword: lacework
+lacework_api_secret:
+  id: Lacework API Secret
+  lib: cribl
+  regex: /_[0-9A-Fa-f]{32}/gm
+  rulesets:
+    - Credentials_Monitoring
+  examples:
+    - "_b5be5dd45b6be7492743f2f90a36dba3"
+  contextKeywords:
+    - keyword: lacework
+nessus_agent_key:
+  id: Nessus Agent Key
+  lib: cribl
+  regex: /[0-9A-Fa-f]{64}/gm
+  rulesets:
+    - Credentials_Monitoring
+  examples:
+    - afdc01d8541ef14a81b80715e8255228e53e87a96048d13f533dc3e099f64593
+    - 23a87832c27177274bd837318f7e22032e4011bec11781209cbbf8ddc4976c4f
+  contextKeywords:
+    - keyword: nessus
+newrelic_api_key:
+  id: New Relic API Key
+  lib: cribl
+  regex: /[0-9A-Fa-f]{40,50}/gm
+  rulesets:
+    - Credentials_Monitoring
+  examples:
+    - fba3858c9eeedb92727d2166fed5a5489817fb576ebee0a
+    - BcEcC0AaEEE553D97dEcc30d550a10EEaaAEa96EbF4aBF6
+  contextKeywords:
+    - keyword: newrelic
+
+pingdom_token:
+  id: Pingdom Token
+  lib: cribl
+  regex: /[A-Za-z0-9]{16,24}/gm
+  rulesets:
+    - Credentials_Monitoring
+  examples:
+    - RZTO7G8IJHCBX3KD15PQ9VU4
+  contextKeywords:
+    - keyword: pingdom
+rollbar_api_access_token:
+  id: Rollbar API Access Token
+  lib: cribl
+  regex: /[0-9A-Fa-f]{32}/gm
+  rulesets:
+    - Credentials_Monitoring
+  examples:
+    - df6ce617465b4980afdecc95ed1b42de
+    - c0a37b9523be431289b38ae89ff2aaaf
+  contextKeywords:
+    - keyword: rollbar
+sentry_org_auth_token:
+  id: Sentry Org Auth Token
+  lib: cribl
+  regex: /sntrys_[A-Za-z0-9+/=_-]{80,}/gm
+  rulesets:
+    - Credentials_Monitoring
+  examples:
+    - "sntrys_eyJpYXQiOjE3MTE0Mzc0000000000000LCJ1cmwiOiJodHRwczovL3NlbnRyeS5pbyIsInJlZ2lvbl91cmwiOiJodHRwczovL3VzLnNlbnRyeS5pbyIsIm9yZyI6ImJsb2NrY2hhaW5mb3Jld000000=_MYmTc+U6jIGGQzOwEvxby9DU9enfEEEEEEEEEEEEEEE"
+  contextKeywords:
+    - keyword: sentry
+    - keyword: sntrys
+splunk_authentication_token:
+  id: Splunk Authentication Token
+  lib: cribl
+  regex: /\b(?:[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12})\b/gm
+  rulesets:
+    - Credentials_Monitoring
+  examples:
+    - 851A5E58-4EF1-7291-F947-C612A9654321
+    - 176fcebf-4cf5-4edf-91bc-728408560464
+  contextKeywords:
+    - keyword: splunk
+sumologic_access_id:
+  id: Sumo Logic Access ID
+  lib: cribl
+  regex: /su[A-Za-z0-9]{12}/gm
+  rulesets:
+    - Credentials_Monitoring
+  examples:
+    - suzAlcKzTi3hAO
+  contextKeywords:
+    - keyword: sumo
+    - keyword: sumologic
+sumologic_access_key:
+  id: Sumo Logic Access Key
+  lib: cribl
+  regex: /[A-Za-z0-9]{64}/gm
+  rulesets:
+    - Credentials_Monitoring
+  examples:
+    - "XPU8IIaT6arXZkVMX3wVvOMHeqpkNM0N4s8dIh6IQVV0H8tFphZxMTy5TBhnpCBB"
+  contextKeywords:
+    - keyword: sumo
+    - keyword: sumologic
+codacy_api_token:
+  id: Codacy API Token
+  lib: cribl
+  regex: /[0-9A-Za-z]{20}/gm
+  rulesets:
+    - Credentials_CodeAnalysis
+  examples:
+    - iSRaZgvl6OEDYexBmVlE
+  contextKeywords:
+    - keyword: codacy
+    - keyword: api
+    - keyword: token
+codacy_project_token:
+  id: Codacy Project Token
+  lib: cribl
+  regex: /[0-9a-f]{32}/gm
+  rulesets:
+    - Credentials_CodeAnalysis
+  examples:
+    - ac6e6fbaa4624c98a46258d69affffff
+  contextKeywords:
+    - keyword: codacy
+    - keyword: project
+    - keyword: token
+codeclimate_key:
+  id: Codeclimate Key
+  lib: cribl
+  regex: /[0-9A-Fa-f]{64}/gm
+  rulesets:
+    - Credentials_CodeAnalysis
+  examples:
+    - 1693eb84b57f015c5d2fee38a1d8e478ead1ebb49c66b05f1e2947293122d7db
+  contextKeywords:
+    - keyword: codeclimate
+    - keyword: reporter
+    - keyword: token
+codecov_api_key:
+  id: Codecov API Key
+  lib: cribl
+  regex: /\b(?:[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}|[0-9A-Fa-f]{32})\b/gm
+  rulesets:
+    - Credentials_CodeAnalysis
+  examples:
+    - 835a4597-5614-40f5-803c-093464aa2a74
+    - 835a4597561440f5803c093464aa2a74
+  contextKeywords:
+    - keyword: codecov
+    - keyword: token
+coveralls_personal_token:
+  id: Coveralls Personal Token
+  lib: cribl
+  regex: /[A-Za-z0-9]{36,37}/gm
+  rulesets:
+    - Credentials_CodeAnalysis
+  examples:
+    - QEAuo5Pufwa2TGqQpst3a1HFSp3v9mKTFd4aJ
+    - HpdRcNheCBfZ5RcrQcqit1zADgyDcUmjQR9j
+  contextKeywords:
+    - keyword: coveralls
+    - keyword: token
+coveralls_repository_token:
+  id: Coveralls Repository Token
+  lib: cribl
+  regex: /[A-Za-z0-9]{32,33}/gm
+  rulesets:
+    - Credentials_CodeAnalysis
+  examples:
+    - DEAmb5Pefef2TOqDvdt3f7HGWp3m9mGTD
+  contextKeywords:
+    - keyword: coveralls
+    - keyword: repo
+    - keyword: token
+snyk_key:
+  id: Snyk Key
+  lib: cribl
+  regex: /\b(?:[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}|[0-9A-Fa-f]{32})\b/gm
+  rulesets:
+    - Credentials_CodeAnalysis
+  examples:
+    - c1427dab-3e2f-4439-8e73-26b3e5ce9f55
+  contextKeywords:
+    - keyword: snyk
+    - keyword: api
+    - keyword: token
+sonarqube_token:
+  id: SonarQube Token
+  lib: cribl
+  regex: /[0-9A-Fa-f]{40}/gm
+  rulesets:
+    - Credentials_CodeAnalysis
+  examples:
+    - 8542358fa39f75d30ca699bc27c57335e047c162
+  contextKeywords:
+    - keyword: sonar
+    - keyword: token
+    - keyword: login
+sonarqube_token_with_host:
+  id: SonarQube Token (With Host)
+  lib: cribl
+  regex: /sq[aup]_[0-9A-Fa-f]{40}/gm
+  rulesets:
+    - Credentials_CodeAnalysis
+  examples:
+    - sqp_9a88f6493075e010f74cbdabeb24fe8c68fab6bd
+    - squ_9a88f6493075e010f74cbdabeb24fe8c68fab6bc
+  contextKeywords:
+    - keyword: sonar
+    - keyword: login
+    - keyword: host
+sourcegraph_token:
+  id: Sourcegraph Access Token
+  lib: cribl
+  regex: /(?:sgp_[0-9A-Fa-f]{40}|sgp_[0-9A-Fa-f]{16}_[0-9A-Fa-f]{40})/gm
+  rulesets:
+    - Credentials_CodeAnalysis
+  examples:
+    - sgp_4e2fe8ba8372df204c27b1b9808ecf7c1a8d4a56
+    - sgp_aba7ccb4f752ea73_986d7fd26ccceea3f3c51dfa2ab8432616bf5fbf
+  contextKeywords:
+    - keyword: sourcegraph
+    - keyword: sgp
+    - keyword: token
+sourcegraph_license_key_token:
+  id: Sourcegraph License Key Token
+  lib: cribl
+  regex: /slk_[0-9A-Fa-f]{64}/gm
+  rulesets:
+    - Credentials_CodeAnalysis
+  examples:
+    - slk_ccc0008e23e123456f08cd15e9be20e69b1234c2dff701b81d16250a4a861f66
+  contextKeywords:
+    - keyword: sourcegraph
+    - keyword: license
+    - keyword: key
+sourcegraph_user_gateway_access_token:
+  id: Sourcegraph User Gateway Access Token
+  lib: cribl
+  regex: /sgd_[0-9A-Fa-f]{64}/gm
+  rulesets:
+    - Credentials_CodeAnalysis
+  examples:
+    - sgd_ccc0008e23e123456f08cd15e9be20e69b1234c2dff701b81d16250a4a861f66
+  contextKeywords:
+    - keyword: sourcegraph
+    - keyword: gateway
+    - keyword: token
+sqreen_token:
+  id: Sqreen Token
+  lib: cribl
+  regex: /org_[0-9A-Fa-f]{60}/gm
+  rulesets:
+    - Credentials_CodeAnalysis
+  examples:
+    - org_8bdf8d8bcabfbe20ded38b10a07510b2b6dd9ac5786467c6a2fdf88193e9
+  contextKeywords:
+    - keyword: sqreen
+    - keyword: token
+wakatime_apikey:
+  id: WakaTime API Key
+  lib: cribl
+  regex: /waka_[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/gm
+  rulesets:
+    - Credentials_CodeAnalysis
+  examples:
+    - waka_f06494e9-363f-44ab-b42d-634bc5ccf6ba
+  contextKeywords:
+    - keyword: wakatime
+    - keyword: api
+    - keyword: key
+generic_private_key:
+  id: Generic Private Key
+  lib: cribl
+  regex: /-----BEGIN (?:(?:DSA|EC|ENCRYPTED|RSA) )?PRIVATE KEY-----[A-Za-z0-9+/=\r\n\s]{100,5000}-----END (?:(?:DSA|EC|ENCRYPTED|RSA) )?PRIVATE KEY-----/gm
+  rulesets:
+    - Default
+  examples:
+    - |-
+      -----BEGIN DSA PRIVATE KEY-----
+          TEST1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqr+/=
+          DummyKeyContent999888777666555444333222111000ZZZYYYXXXWWWaaaa+/=
+          -----END DSA PRIVATE KEY-----
+    - |-
+      -----BEGIN EC PRIVATE KEY-----
+      TEST123ABCdef456GHIjkl789MNOpqr012STUvwx345YZabcd678efghij901klmn
+      234opqr567stuv890wxyz123ABCD456EFGH789IJKL012MNOP345QRST678UVWX
+      901YZab234cdef567ghij890klmn123opqr456stuv789wxyz012ABCD345TEST=
+      -----END EC PRIVATE KEY-----
