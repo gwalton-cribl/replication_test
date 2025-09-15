@@ -102,6 +102,7 @@ inputs:
     type: criblmetrics
     disabled: true
     pipeline: cribl_metrics_rollup
+    fullFidelity: false
   in_system_metrics:
     type: system_metrics
     disabled: true

@@ -96,7 +96,7 @@ inputs:
       - Security
       - Application
       - System
-    readMode: oldest
+    readMode: newest
     interval: 10
     batchSize: 500
     type: win_event_logs

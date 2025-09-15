@@ -5,3 +5,6 @@ eventsMetadataSources:
   - env
   - kube
 defaultHeartbeatSeconds: 60
+minReconnectInterval: '10s'
+maxReconnectInterval: '30m'
+randomReconnectInterval: '1m'

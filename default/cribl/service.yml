@@ -15,6 +15,10 @@ edge_connections:
   procs: 0
   autoScale: true
   memoryLimit: 2GB
+connection_proxy:
+  procs: 1
+  recvBufferSize: 4096
+  memoryLimit: 2GB
 jobs:
   procs: 1
   memoryLimit: 2GB

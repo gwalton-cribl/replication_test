@@ -1,24 +1,19 @@
 {
   "rules": {
     "ui:field": "Table",
-    "ui:options": {
-      "popupEditor": "RegexEditor",
-      "popupEditorTitle": "Event Breaker Rule",
-      "matchRegexProperty": "matchRegex",
-      "replaceExprProperty": "replaceExpr",
-      "eventFieldProperty": "fields"
-    },
     "items": {
       "rulesetId": {
         "ui:widget": "ApiLookup",
-          "ui:options": {
-            "lookupProvider": "Rulesets"
-          }
+        "ui:options": {
+          "lookupProvider": "Rulesets",
+          "columnWidth": "42%"
+        }
+          
       },
       "replaceExpr": {
         "ui:widget": "JsInputWithoutPopup",
         "ui:placeholder": "Enter replace expression",
-        "ui:default": "C.Mask.REDACTED",
+        "ui:default": "'REDACTED'",
         "ui:options": {
           "columnWidth": "42%"
         }
@@ -26,7 +21,7 @@
       "disabled": {
         "ui:title": "Enabled",
         "ui:options": {
-          "columnWidth": "15%",
+          "columnWidth": "16%",
           "inverted": true
         }
       }
@@ -53,6 +48,16 @@
     }
   },
   "includeDetectedRules": {
-    "ui:title": "Add array of detected rulesets"
-  }
+    "ui:title": "Add matched rulesets",
+    "ui:default": false
+  },
+  "ui:options": {
+      "groups": {
+        "advanced": {
+            "title": "Advanced Settings",
+            "collapsed": true,
+            "properties": ["flags", "includeDetectedRules"]
+        }
+      }
+    }
 }

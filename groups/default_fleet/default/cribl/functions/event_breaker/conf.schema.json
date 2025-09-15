@@ -155,6 +155,12 @@
                       "title": "Array field",
                       "description": "The path to an array in a JSON event with records to extract, such as Records or level1.level2.events. Leave blank if result itself is an array, such as [{...},{...}]"
                     },
+                    "parentFieldsToCopy": {
+                      "title": "Parent fields to copy",
+                      "description": "Top-level fields to copy to the output events. Nested fields are not supported. 'Array field' is always excluded. If 'Array field' points to a nested array, the entire top-level object will be excluded. Supports * wildcards. Enclose field names containing special characters in single or double quotes.",
+                      "type": "array",
+                      "items": {"type": "string"}
+                    },
                     "jsonExtractAll": {
                       "type": "boolean",
                       "title": "JSON extract fields",

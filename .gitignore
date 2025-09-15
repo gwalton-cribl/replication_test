@@ -21,6 +21,7 @@ data/uploads
 **/local/cribl/lakes.yml
 **/local/cribl/lake-cache-servers.yml
 **/local/cribl/lake-direct-access.yml
+**/local/cribl/lake-storage-locations.yml
 **/default/cribl/lake-config.yml
 **/local/cribl/lake-config.yml
 /thirdparty/

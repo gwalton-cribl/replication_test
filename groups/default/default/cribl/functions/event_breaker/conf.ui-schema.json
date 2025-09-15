@@ -11,7 +11,7 @@
       "editable": false
     }
   },
-  "ui:options": "conf.existingOrNew == 'new' ? { groups: { breaker: { title: 'Event Breaker Settings', collapsible: false, properties: ['disabled', 'type', 'eventBreakerRegex','headerLineRegex', 'delimiterRegex', 'fieldsLineRegex', 'nullFieldVal', 'cleanFields', 'jsonArrayField', 'jsonExtractAll', 'jsonTimeField', 'delimiter', 'quoteChar', 'escapeChar', 'timeField', 'maxEventBytes'] }, timestamp: { title: 'Timestamp Settings', collapsible: false, properties: ['timestampAnchorRegex', 'timestamp', 'timestampTimezone', 'timestampEarliest', 'timestampLatest']}, advanced: { title: 'Advanced Settings', collapsible: true, collapsed: true, properties: ['shouldMarkCriblBreaker']}}} : { groups: { advanced: { title: 'Advanced Settings', collapsible: true, collapsed: true, properties: ['shouldMarkCriblBreaker']}}}",
+  "ui:options": "conf.existingOrNew == 'new' ? { groups: { breaker: { title: 'Event Breaker Settings', collapsible: false, properties: ['disabled', 'type', 'eventBreakerRegex','headerLineRegex', 'delimiterRegex', 'fieldsLineRegex', 'nullFieldVal', 'cleanFields', 'jsonArrayField', 'parentFieldsToCopy', 'jsonExtractAll',  'jsonTimeField', 'delimiter', 'quoteChar', 'escapeChar', 'timeField', 'maxEventBytes'] }, timestamp: { title: 'Timestamp Settings', collapsible: false, properties: ['timestampAnchorRegex', 'timestamp', 'timestampTimezone', 'timestampEarliest', 'timestampLatest']}, advanced: { title: 'Advanced Settings', collapsible: true, collapsed: true, properties: ['shouldMarkCriblBreaker']}}} : { groups: { advanced: { title: 'Advanced Settings', collapsible: true, collapsed: true, properties: ['shouldMarkCriblBreaker']}}}",
   "ruleType": {
     "ui:options": {
       "uiEnumOptions": [
@@ -108,5 +108,9 @@
       "labelProp": "label",
       "editable": false
     }
+  },
+  "parentFieldsToCopy":{
+    "ui:field": "Tags",
+    "ui:placeholder": "Enter field names"
   }
 }

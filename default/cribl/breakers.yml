@@ -20,7 +20,7 @@ AWS Ruleset:
     - name: AWS VPC Flow
       condition: /^\d+\s+\w+\s+eni-\w+.*(OK|NODATA|SKIPDATA)?$/m.test(_raw) || sourcetype=='aws:cloudwatchlogs:vpcflow'
       eventBreakerRegex: /[\n\r]+/
-      timestampAnchorRegex: /\s(?=\d{10}\s\d{10}\s\w)/
+      timestampAnchorRegex: /\s(?=\d{10}\s\d{10}\s[A-Za-z-])/
       timestamp:
         type: format
         length: 150
