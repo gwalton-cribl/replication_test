@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "title": "",
+  "required": ["inputId"],
+  "properties": {
+    "inputId": {
+      "type": "string",
+      "title": "Input Id",
+      "description": "Persistent Queue Source"
+    }
+  }
+}
