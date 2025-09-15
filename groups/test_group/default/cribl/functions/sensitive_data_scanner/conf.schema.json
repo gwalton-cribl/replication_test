@@ -1,0 +1,88 @@
+{
+  "type": "object",
+  "title": "",
+  "required": ["rules"],
+  "properties": {
+    "rules": {
+      "type": "array",
+      "title": "Scanning Rulesets",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["rulesetId", "replaceExpr"],
+        "properties": {
+          "rulesetId": {
+            "type": "string",
+            "title": "Ruleset ID",
+            "description": "The ID of the ruleset to use for the scan"
+          },
+          "replaceExpr": {
+            "type": "string",
+            "title": "Mitigation Expression",
+            "description": "A JavaScript expression or literal to replace the matching content. Capturing groups can be referenced as g1, g2, and so on, and event fields as event.<fieldName>.",
+            "jsExpression": true,
+            "default": "'REDACTED'"
+          },
+          "disabled": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    },
+    "fields": {
+      "type": "array",
+      "title": "Apply to fields",
+      "description": "Rulesets act on the events contained in these fields. Mitigation expressions apply to the scan results. Supports wildcards (*).",
+      "items": {
+        "type": "string",
+        "pattern": "^(?!__.*\\*).*$",
+        "errorMessage": {
+           "pattern": "Internal fields cannot be used with wildcards."
+        }
+      },
+      "default": ["_raw"]
+    },
+    "excludeFields": {
+      "type": "array",
+      "title": "Fields to ignore",
+      "description": "Fields that the mitigation expression will not be applied to. Supports wildcards (*).",
+      "placeholder": "Start typing to add exclusion fields",
+      "items": {
+        "type": "string",
+        "pattern": "^(?!__.*\\*).*$",
+        "errorMessage": {
+           "pattern": "Internal fields cannot be used with wildcards"
+        }
+      },
+      "default": []
+    },
+    "flags": {
+      "title": "Add fields",
+      "description": "Fields to add when mitigation is applied to an event",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "value": {
+            "type": "string",
+            "title": "Value",
+            "jsExpression": true
+          }
+        }
+      },
+      "default": [{ "name": "_sensitive", "value": "true" }]
+    },
+    "includeDetectedRules": { 
+      "type": "boolean",
+      "title": "Include detected rules",
+      "description": "If enabled, Add matching ruleset IDs to a field called \"__detected\"",
+      "default": true
+    }
+  }
+}

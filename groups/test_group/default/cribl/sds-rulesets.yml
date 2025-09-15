@@ -1,0 +1,78 @@
+Default:
+  description: General-purpose ruleset applied by default for broadly sensitive data.
+  lib: cribl
+Credentials_AI:
+  description: API keys and secrets for AI platforms and services.
+  lib: cribl
+Credentials_Amazon:
+  description: AWS access keys, secret keys, and related Amazon credentials.
+  lib: cribl
+Credentials_Azure:
+  description: Azure keys, OAuth contexts, and related Microsoft cloud credentials.
+  lib: cribl
+Credentials_Communication:
+  description: Messaging and email service credentials such as Slack, Twilio, Mailgun, and SendGrid.
+  lib: cribl
+Credentials_CryptographicKeys:
+  description: Cryptographic private keys and key material (RSA, EC, PGP, PuTTY, etc.).
+  lib: cribl
+Credentials_Financial:
+  description: Credentials for financial platforms such as Stripe, Square, Shopify, and crypto wallets.
+  lib: cribl
+Credentials_Google:
+  description: Google and GCP-related API keys and credentials.
+  lib: cribl
+Credentials_SaaS:
+  description: SaaS platform tokens and credentials (e.g., GitHub, GitLab, Databricks, Docker, Jira, Postman).
+  lib: cribl
+Credentials_Social:
+  description: Social platform tokens and secrets (e.g., Facebook, Twitter/X).
+  lib: cribl
+Credentials_Web:
+  description: Web authentication artifacts such as Basic Auth, cookies, and JWTs.
+  lib: cribl
+Financial_Global:
+  description: Global financial identifiers such as credit cards and IBANs.
+  lib: cribl
+Financial_UnitedStates:
+  description: United States-specific financial identifiers such as ABA routing and bank accounts.
+  lib: cribl
+Health_UnitedStates:
+  description: United States healthcare identifiers such as NDC and other PHI.
+  lib: cribl
+Network_Global:
+  description: Network-related data such as IP addresses, MAC addresses, and URLs.
+  lib: cribl
+PII_AsiaPacific:
+  description: Asia-Pacific regional identifiers (e.g., AU ABN/ACN/TFN, India Aadhaar/PAN, SG NRIC/UEN).
+  lib: cribl
+PII_EuropeanUnion:
+  description: EU-specific personal identifiers (e.g., national IDs, passports, tax IDs).
+  lib: cribl
+PII_Global:
+  description: General PII applicable worldwide (e.g., emails, phone numbers).
+  lib: cribl
+PII_UnitedKingdom:
+  description: United Kingdom-specific identifiers (e.g., NHS number, NINO, passport, driver’s license).
+  lib: cribl
+PII_UnitedStates:
+  description: United States-specific PII (e.g., SSN, ITIN, VIN, passports).
+  lib: cribl
+Credentials_Storage:
+  description: Digital storage platform credentials and API keys (e.g., Algolia, cloud storage services).
+  lib: cribl
+Credentials_Identity:
+  description: Identity and authentication provider credentials (e.g., Auth0, Okta, Duo, Azure AD).
+  lib: cribl
+Credentials_CDN:
+  description: Content Delivery Network credentials and API keys (e.g., BunnyCDN, Cloudflare).
+  lib: cribl
+Health_Global:
+  description: Global healthcare identifiers and medical codes (e.g., DEA numbers, HICN, EHIC, NDC).
+  lib: cribl
+Credentials_Monitoring:
+  description: Monitoring and observability platform credentials (e.g., Datadog, Grafana, New Relic, Splunk).
+  lib: cribl
+Credentials_CodeAnalysis:
+  description: Code analysis and quality assurance platform credentials (e.g., Codacy, SonarQube, Snyk, Codecov).
+  lib: cribl
